@@ -60,7 +60,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('images/IMG_3415.JPG') center/contain no-repeat;
+    background: url('images/IMG_3415.JPG') center/cover no-repeat;
     background-size: cover;
     opacity: 0.4;
     z-index: 1;
@@ -1805,6 +1805,26 @@ p {
     .rsvp-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
+    }
+
+    .container {
+        padding: 0 1.5rem;
+    }
+
+    .home-section {
+        padding: 2rem 1rem;
+    }
+
+    .invitation-section {
+        padding: 3rem 1rem;
+    }
+
+    .couple-names h1 {
+        font-size: 2.5rem;
+    }
+
+    .wedding-date h2 {
+        font-size: 1.8rem;
     }
 }
 

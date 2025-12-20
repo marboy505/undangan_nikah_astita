@@ -64,7 +64,7 @@
     </section>
 
     <!-- Invitation Section -->
-    <section id="invitation" class="invitation-section">
+    <section id="invitation" class="invitation-section" style="display: none;">
         <div class="invitation-content">
             <div class="couple-names reveal">
                 <h1>Muhammad Irfan<br>& Astita Suntiasih</h1>
@@ -82,7 +82,7 @@
     </section>
 
     <!-- We Are Getting Married Section -->
-    <section id="intro" class="intro-section">
+    <section id="intro" class="intro-section" style="display: none;">
         <div class="container">
             <div class="intro-content" data-aos="fade-up">
                 <h2>We Are Getting Married</h2>
@@ -98,7 +98,7 @@
 
 
     <!-- Couple Section -->
-    <section id="couple" class="couple-section">
+    <section id="couple" class="couple-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
             
@@ -140,7 +140,7 @@
     </section>
 
     <!-- Love Story Timeline Section -->
-    <section id="timeline" class="timeline-section">
+    <section id="timeline" class="timeline-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Love Story</h2>
             <div class="timeline">
@@ -188,7 +188,7 @@
     </section>
 
     <!-- Event Details Section -->
-    <section id="event" class="event-section">
+    <section id="event" class="event-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Acara Pernikahan</h2>
 
@@ -235,7 +235,7 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
+    <section id="gallery" class="gallery-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Galeri</h2>
             <div class="gallery-grid">
@@ -271,7 +271,7 @@
     </section>
 
     <!-- Love Gift Section -->
-    <section id="gift" class="gift-section">
+    <section id="gift" class="gift-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Love Gift</h2>
             <div class="gift-intro" data-aos="fade-up">
@@ -311,7 +311,7 @@
     </section>
 
     <!-- Shipping Address Section -->
-    <section id="address" class="address-section">
+    <section id="address" class="address-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Kirim Hadiah</h2>
             <div class="address-content" data-aos="fade-up">
@@ -334,7 +334,7 @@
     </section>
 
     <!-- RSVP Section -->
-    <section id="rsvp" class="rsvp-section">
+    <section id="rsvp" class="rsvp-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Konfirmasi Kehadiran</h2>
             <div class="rsvp-content">
@@ -351,7 +351,7 @@
                     <div class="form-group">
                         <input type="text" id="name" placeholder="Nama Lengkap" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Jumlah Kehadiran:</label>
                         <select id="attendance" required>
@@ -362,7 +362,7 @@
                             <option value="4">4 Orang</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Konfirmasi Kehadiran:</label>
                         <div class="radio-group">
@@ -370,11 +370,11 @@
                             <label><input type="radio" name="confirm" value="tidak"> Tidak Hadir</label>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <textarea id="message" placeholder="Ucapan / Doa"></textarea>
                     </div>
-                    
+
                     <button type="submit">Kirim Konfirmasi</button>
                 </form>
             </div>
@@ -382,29 +382,29 @@
     </section>
 
     <!-- Wishes Section -->
-    <section id="wishes" class="wishes-section">
+    <section id="wishes" class="wishes-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Ucapan & Doa</h2>
             <div id="wishes-container">
                 <!-- Ucapan akan ditampilkan di sini -->
             </div>
-            
+
             <form id="wishes-form" data-aos="fade-up">
                 <div class="form-group">
                     <input type="text" id="wishes-name" placeholder="Nama" required>
                 </div>
-                
+
                 <div class="form-group">
                     <textarea id="wishes-message" placeholder="Ucapan & Doa" required></textarea>
                 </div>
-                
+
                 <button type="submit">Kirim Ucapan</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="display: none;">
         <div class="container">
             <p>© 2026 Muhammad Irfan & Astita Suntiasih. Dengan penuh cinta.</p>
             <div class="social-links">
@@ -415,8 +415,8 @@
             <p class="footer-note">Acara ini diselenggarakan dengan tetap memperhatikan protokol kesehatan</p>
         </div>
     </footer>
-    
-    <a id="scroll-top" class="scroll-top" href="#"><i class="fas fa-arrow-up"></i></a>
+
+    <a id="scroll-top" class="scroll-top" href="#" style="display: none;"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
@@ -430,9 +430,21 @@
         document.getElementById("write").style.textAlign="center"
     }
 
-    // Smooth scroll to invitation section
+    // Handle "Buka Undangan" button click
     document.querySelector('.btn-open').addEventListener('click', function(e) {
         e.preventDefault();
+
+        // Show all hidden sections
+        const hiddenSections = document.querySelectorAll('section[style*="display: none"]');
+        hiddenSections.forEach(section => {
+            section.style.display = 'block';
+        });
+
+        // Start background music
+        const bgMusic = document.getElementById('bg-music');
+        bgMusic.play().catch(e => console.log("Music play prevented: ", e));
+
+        // Scroll to invitation section
         document.getElementById('invitation').scrollIntoView({
             behavior: 'smooth'
         });

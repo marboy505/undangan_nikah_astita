@@ -14,23 +14,22 @@ window.addEventListener('load', function() {
 // Music toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const bgMusic = document.getElementById('bg-music');
-    const musicIcon = document.getElementById('music-icon');
-    
-    // Music starts playing by default
+    // const musicIcon = document.getElementById('music-icon'); // Commented out as header is hidden
+
     bgMusic.volume = 0.3; // Set volume to 30%
-    bgMusic.play().catch(e => console.log("Autoplay prevented: ", e));
-    
-    musicIcon.addEventListener('click', function() {
-        if (bgMusic.paused) {
-            bgMusic.play();
-            musicIcon.style.color = '#d4a76a';
-            musicIcon.classList.add('playing');
-        } else {
-            bgMusic.pause();
-            musicIcon.style.color = '#8e5e3d';
-            musicIcon.classList.remove('playing');
-        }
-    });
+
+    // Music will start when "Buka Undangan" is clicked
+    // musicIcon.addEventListener('click', function() {
+    //     if (bgMusic.paused) {
+    //         bgMusic.play();
+    //         musicIcon.style.color = '#d4a76a';
+    //         musicIcon.classList.add('playing');
+    //     } else {
+    //         bgMusic.pause();
+    //         musicIcon.style.color = '#8e5e3d';
+    //         musicIcon.classList.remove('playing');
+    //     }
+    // });
 });
 
 // Countdown timer
