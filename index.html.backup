@@ -36,10 +36,8 @@
             <ul>
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#couple">Pasangan</a></li>
-                <li><a href="#timeline">Love Story</a></li>
                 <li><a href="#event">Acara</a></li>
                 <li><a href="#gallery">Galeri</a></li>
-                <li><a href="#gift">Love Gift</a></li>
                 <li><a href="#rsvp">Konfirmasi</a></li>
                 <li><a href="#wishes">Ucapan</a></li>
             </ul>
@@ -54,9 +52,8 @@
                 <div class="divider"></div>
                 <p>Menuju Hari Bahagia Kami</p>
             </div>
-
+            
             <div class="countdown" data-aos="fade-up" data-aos-delay="300">
-                <p class="save-the-date">SAVE THE DATE</p>
                 <div class="date-display">
                     <div class="date-box">
                         <span id="day">00</span>
@@ -76,29 +73,15 @@
                     </div>
                 </div>
             </div>
-
+            
             <div class="invitation-text" data-aos="fade-up" data-aos-delay="600">
                 <p>"Dan diantara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tentram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (Kebesaran Allah) bagi kaum yang berpikir"</p>
                 <p style="font-style: italic; margin-top: 1rem; font-size: 1rem;">(Q.S Ar-Rum : 21)</p>
             </div>
-
+            
             <div class="scroll-down-indicator" data-aos="fade-up" data-aos-delay="900">
                 <i class="fas fa-chevron-down"></i>
                 <span>Scroll untuk melihat lebih lanjut</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- We Are Getting Married Section -->
-    <section id="intro" class="intro-section">
-        <div class="container">
-            <div class="intro-content" data-aos="fade-up">
-                <h2>We Are Getting Married</h2>
-                <div class="divider"></div>
-                <p>Dengan penuh rasa syukur dan kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk berbagi kebahagiaan bersama kami dalam acara pernikahan yang akan dilaksanakan pada:</p>
-                <div class="wedding-date">
-                    <h3>11 Januari 2026</h3>
-                </div>
             </div>
         </div>
     </section>
@@ -145,59 +128,11 @@
         </div>
     </section>
 
-    <!-- Love Story Timeline Section -->
-    <section id="timeline" class="timeline-section">
-        <div class="container">
-            <h2 data-aos="fade-up">Love Story</h2>
-            <div class="timeline">
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-date">
-                        <h3>2020</h3>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>First Meet</h4>
-                        <p>Pertemuan pertama kami yang tak terlupakan. Dari pertemuan singkat hingga menjadi awal cerita indah kami.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-date">
-                        <h3>2022</h3>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>Growing Together</h4>
-                        <p>Kami mulai mengenal lebih dalam, saling berbagi cerita, dan tumbuh bersama dalam setiap momen.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-right">
-                    <div class="timeline-date">
-                        <h3>2024</h3>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>The Proposal</h4>
-                        <p>Momen spesial dimana kami memutuskan untuk melangkah lebih serius dan berkomitmen untuk bersama selamanya.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item" data-aos="fade-left">
-                    <div class="timeline-date">
-                        <h3>2026</h3>
-                    </div>
-                    <div class="timeline-content">
-                        <h4>Forever Begins</h4>
-                        <p>Hari yang ditunggu-tunggu, dimana kami akan memulai perjalanan baru sebagai suami istri.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Event Details Section -->
     <section id="event" class="event-section">
         <div class="container">
             <h2 data-aos="fade-up">Acara Pernikahan</h2>
-
+            
             <div class="event-grid">
                 <div class="event-card" data-aos="fade-up">
                     <i class="fas fa-calendar-day"></i>
@@ -244,97 +179,51 @@
     <section id="gallery" class="gallery-section">
         <div class="container">
             <h2 data-aos="fade-up">Galeri</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox(this.src, this.alt, 0)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox(this.src, this.alt, 1)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox(this.src, this.alt, 2)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/IMG_3423.JPG" alt="Galeri 4" onclick="openLightbox(this.src, this.alt, 3)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/IMG_3426.JPG" alt="Galeri 5" onclick="openLightbox(this.src, this.alt, 4)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/IMG_3428.JPG" alt="Galeri 6" onclick="openLightbox(this.src, this.alt, 5)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/IMG_3429.JPG" alt="Galeri 7" onclick="openLightbox(this.src, this.alt, 6)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/IMG_3432.JPG" alt="Galeri 8" onclick="openLightbox(this.src, this.alt, 7)">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/IMG_3433.JPG" alt="Galeri 9" onclick="openLightbox(this.src, this.alt, 8)">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Love Gift Section -->
-    <section id="gift" class="gift-section">
-        <div class="container">
-            <h2 data-aos="fade-up">Love Gift</h2>
-            <div class="gift-intro" data-aos="fade-up">
-                <p>Doa restu Bapak/Ibu/Saudara/i merupakan karunia yang sangat berarti bagi kami. Namun apabila memberi adalah ungkapan tanda kasih, kami dengan senang hati menerimanya.</p>
-            </div>
-
-            <div class="gift-cards">
-                <div class="gift-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bank-logo">
-                        <i class="fas fa-university"></i>
+            <div class="gallery-slider-container">
+                <div class="gallery-slider">
+                    <div class="gallery-slide active">
+                        <img src="images/IMG_3415.JPG" alt="Galeri 1">
                     </div>
-                    <h3>Bank BCA</h3>
-                    <div class="account-details">
-                        <p class="account-number" id="bca-account">1234567890</p>
-                        <p class="account-name">a.n. Muhammad Irfan</p>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3416.JPG" alt="Galeri 2">
                     </div>
-                    <button class="copy-btn" onclick="copyToClipboard('bca-account')">
-                        <i class="fas fa-copy"></i> Salin Nomor Rekening
-                    </button>
-                </div>
-
-                <div class="gift-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bank-logo">
-                        <i class="fas fa-university"></i>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3420.JPG" alt="Galeri 3">
                     </div>
-                    <h3>Bank Mandiri</h3>
-                    <div class="account-details">
-                        <p class="account-number" id="mandiri-account">9876543210</p>
-                        <p class="account-name">a.n. Astita Suntiasih</p>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3423.JPG" alt="Galeri 4">
                     </div>
-                    <button class="copy-btn" onclick="copyToClipboard('mandiri-account')">
-                        <i class="fas fa-copy"></i> Salin Nomor Rekening
-                    </button>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3426.JPG" alt="Galeri 5">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3428.JPG" alt="Galeri 6">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3429.JPG" alt="Galeri 7">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3432.JPG" alt="Galeri 8">
+                    </div>
+                    <div class="gallery-slide">
+                        <img src="images/IMG_3433.JPG" alt="Galeri 9">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Shipping Address Section -->
-    <section id="address" class="address-section">
-        <div class="container">
-            <h2 data-aos="fade-up">Kirim Hadiah</h2>
-            <div class="address-content" data-aos="fade-up">
-                <div class="address-icon">
-                    <i class="fas fa-map-marked-alt"></i>
+                <div class="slider-nav">
+                    <button class="prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="next" onclick="changeSlide(1)">❯</button>
                 </div>
-                <h3>Alamat Pengiriman</h3>
-                <div class="address-details">
-                    <p>Muhammad Irfan & Astita Suntiasih</p>
-                    <p>Jl. Contoh Alamat No. 123, RT/RW 001/002</p>
-                    <p>Kelurahan Contoh, Kecamatan Contoh</p>
-                    <p>Kota Bandung, Jawa Barat 40123</p>
-                    <p>Telepon: +62 812-3456-7890</p>
+                <div class="slider-indicators">
+                    <span class="dot active" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                    <span class="dot" onclick="currentSlide(6)"></span>
+                    <span class="dot" onclick="currentSlide(7)"></span>
+                    <span class="dot" onclick="currentSlide(8)"></span>
+                    <span class="dot" onclick="currentSlide(9)"></span>
                 </div>
-                <button class="copy-btn" onclick="copyAddress()">
-                    <i class="fas fa-copy"></i> Salin Alamat
-                </button>
             </div>
         </div>
     </section>
