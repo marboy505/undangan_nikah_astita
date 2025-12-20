@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Countdown timer
 function updateCountdown() {
     // Set the wedding date (adjust this to actual wedding date)
-    const weddingDate = new Date('November 26, 2025 10:00:00').getTime();
+    const weddingDate = new Date('January 11, 2026 08:00:00').getTime();
     const now = new Date().getTime();
     const timeRemaining = weddingDate - now;
 
@@ -262,7 +262,7 @@ document.querySelector('.scroll-top').addEventListener('click', function(e) {
 // Show location function
 function showLocation() {
     // Open Google Maps to the wedding venue
-    window.open('https://www.google.com/maps/place/Gedung+Serbaguna+Puri+Melati,+Jl.+Raya+Bogor,+Jakarta', '_blank');
+    window.open('https://maps.app.goo.gl/prdaRWKFNxdDBQSi7', '_blank');
 }
 
 // Animation on scroll enhancement

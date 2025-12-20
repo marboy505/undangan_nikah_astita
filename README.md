@@ -1,6 +1,6 @@
-# Undangan Pernikahan Muhammad Adam R & Dhea Ananda
+# Undangan Pernikahan Muhammad Irfan & Astita Suntiasih
 
-Website undangan pernikahan digital yang indah dan interaktif untuk Muhammad Adam R & Dhea Ananda. Website ini dibuat dengan HTML, CSS, dan JavaScript murni dengan berbagai fitur modern seperti countdown timer, galeri foto, formulir konfirmasi kehadiran, dan sistem ucapan tamu.
+Website undangan pernikahan digital yang indah dan interaktif untuk Muhammad Irfan & Astita Suntiasih. Website ini dibuat dengan HTML, CSS, dan JavaScript murni dengan berbagai fitur modern seperti countdown timer, galeri foto, formulir konfirmasi kehadiran, dan sistem ucapan tamu.
 
 ## Fitur
 
@@ -160,8 +160,30 @@ Jika ada pertanyaan atau masalah, bisa hubungi:
 - Email: [your-email@example.com]
 - WhatsApp: [nomor-whatsapp]
 
+## Data Acara
+
+**Mempelai Wanita:**
+- Nama: Astita Suntiasih (Tita)
+- Putri dari: Bapak Parta., S.Pd & Ibu Sunarsih
+- Instagram: [@astitasuntiasihh](https://instagram.com/astitasuntiasihh)
+
+**Mempelai Pria:**
+- Nama: Muhammad Irfan (Irfan)
+- Putra dari: Bapak Muh. Idris & (Alm) Ibu Mustiati
+- Instagram: [@muhammadirfanidris](https://instagram.com/muhammadirfanidris)
+
+**Waktu & Lokasi:**
+- Tanggal: 11 Januari 2026
+- Akad Nikah: 08:00 WIB
+- Resepsi: 11:00 - 14:00 WIB
+- Lokasi: GEDUNG AULA LAYANAN SOSIAL GRIYA HARAPAN INDAH, DINAS SOSIAL PROV. JAWA BARAT
+- [Google Maps](https://maps.app.goo.gl/prdaRWKFNxdDBQSi7)
+
+**Musik Background:**
+- Kota Ini Tak Sama Tanpamu - Nadhif Basalamah
+
 ## Hak Cipta dan Lisensi
 
 Desain dan kode ini dibuat untuk keperluan pribadi. Silakan sesuaikan dengan kebutuhan Anda.
 
-© 2025 Muhammad Adam R & Dhea Ananda. Dengan penuh cinta.
+© 2026 Muhammad Irfan & Astita Suntiasih. Dengan penuh cinta.

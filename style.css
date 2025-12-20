@@ -267,7 +267,7 @@ p {
     align-items: center;
     text-align: center;
     background: linear-gradient(135deg, rgba(249, 245, 240, 0.9) 0%, rgba(236, 227, 217, 0.7) 100%),
-                url('images/Screenshot from 2025-10-14 16-00-26.png') center/cover no-repeat;
+                url('images/IMG_3420.JPG') center/cover no-repeat;
     position: relative;
     padding: 2rem 0;
     overflow: hidden;
@@ -539,6 +539,14 @@ p {
     font-size: 1.1rem;
 }
 
+.couple-card p.nickname {
+    font-style: italic;
+    color: #a87d5a;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    margin-top: -0.5rem;
+}
+
 .social-icons {
     display: flex;
     justify-content: center;
@@ -619,7 +627,7 @@ p {
 .event-section {
     padding: 6rem 0;
     background: linear-gradient(135deg, rgba(249, 245, 240, 0.95) 0%, rgba(236, 227, 217, 0.85) 100%),
-                url('images/Screenshot from 2025-10-14 16-00-35.png') center/cover no-repeat fixed;
+                url('images/IMG_3428.JPG') center/cover no-repeat fixed;
     position: relative;
 }
 
@@ -859,7 +867,7 @@ p {
 .rsvp-section {
     padding: 6rem 0;
     background: linear-gradient(135deg, rgba(249, 245, 240, 0.95) 0%, rgba(236, 227, 217, 0.85) 100%),
-                url('images/Screenshot from 2025-10-14 16-00-54.png') center/cover no-repeat fixed;
+                url('images/IMG_3432.JPG') center/cover no-repeat fixed;
     position: relative;
 }
 
