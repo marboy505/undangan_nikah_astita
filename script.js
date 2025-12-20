@@ -176,15 +176,17 @@ document.addEventListener('DOMContentLoaded', loadWishes);
 // Gallery lightbox functionality with navigation
 let currentLightboxIndex = 0;
 const galleryImages = [
-    'images/IMG_3415.JPG',
-    'images/IMG_3416.JPG',
-    'images/IMG_3420.JPG',
-    'images/IMG_3423.JPG',
-    'images/IMG_3426.JPG',
-    'images/IMG_3428.JPG',
-    'images/IMG_3429.JPG',
-    'images/IMG_3432.JPG',
-    'images/IMG_3433.JPG'
+    'images/optimized/IMG_3415_optimized.jpg',
+    'images/optimized/IMG_3416_optimized.jpg',
+    'images/optimized/IMG_3420_optimized.jpg',
+    'images/optimized/IMG_3423_optimized.jpg',
+    'images/optimized/IMG_3426_optimized.jpg',
+    'images/optimized/IMG_3428_optimized.jpg',
+    'images/optimized/IMG_3429_optimized.jpg',
+    'images/optimized/IMG_3432_optimized.jpg',
+    'images/optimized/IMG_3433_optimized.jpg',
+    'images/optimized/IMG_3434(1)_optimized.jpg',
+    'images/optimized/IMG_3438_optimized.jpg'
 ];
 
 function openLightbox(imgSrc, altText, index) {
