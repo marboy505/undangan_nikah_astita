@@ -50,41 +50,33 @@
     <section id="home" class="home-section">
         <div class="container">
             <div class="couple-name" data-aos="fade-up">
+                <h1>The Wedding of</h1>
                 <h1>Muhammad Irfan & Astita Suntiasih</h1>
-                <div class="divider"></div>
-                <p>Menuju Hari Bahagia Kami</p>
-            </div>
-
-            <div class="countdown" data-aos="fade-up" data-aos-delay="300">
-                <p class="save-the-date">SAVE THE DATE</p>
-                <div class="date-display">
-                    <div class="date-box">
-                        <span id="day">00</span>
-                        <p>Hari</p>
-                    </div>
-                    <div class="date-box">
-                        <span id="hour">00</span>
-                        <p>Jam</p>
-                    </div>
-                    <div class="date-box">
-                        <span id="minute">00</span>
-                        <p>Menit</p>
-                    </div>
-                    <div class="date-box">
-                        <span id="second">00</span>
-                        <p>Detik</p>
-                    </div>
+                <p>Kepada YTH:</p>
+                <div class="guest-name">
+                    <p id="write"></p>
+                </div>
+                <div class="open-button">
+                    <a href="#invitation" class="btn-open">Buka Undangan</a>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="invitation-text" data-aos="fade-up" data-aos-delay="600">
-                <p>"Dan diantara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tentram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (Kebesaran Allah) bagi kaum yang berpikir"</p>
-                <p style="font-style: italic; margin-top: 1rem; font-size: 1rem;">(Q.S Ar-Rum : 21)</p>
+    <!-- Invitation Section -->
+    <section id="invitation" class="invitation-section">
+        <div class="invitation-content">
+            <div class="couple-names reveal">
+                <h1>Muhammad Irfan<br>& Astita Suntiasih</h1>
             </div>
 
-            <div class="scroll-down-indicator" data-aos="fade-up" data-aos-delay="900">
-                <i class="fas fa-chevron-down"></i>
-                <span>Scroll untuk melihat lebih lanjut</span>
+            <div class="wedding-date reveal">
+                <h2>11 Januari 2026</h2>
+            </div>
+
+            <div class="wedding-quote reveal">
+                <p>"A great marriage is not when the 'perfect couple' comes together. It is when an 'imperfect couple' learns to enjoy their differences"</p>
+                <p>- Dave Meurer -</p>
             </div>
         </div>
     </section>
@@ -103,6 +95,8 @@
         </div>
     </section>
 
+
+
     <!-- Couple Section -->
     <section id="couple" class="couple-section">
         <div class="container">
@@ -113,7 +107,7 @@
             
             <div class="couple-grid">
                 <div class="couple-card" data-aos="fade-right">
-                    <img src="images/IMG_3415.JPG" alt="Astita Suntiasih" class="couple-photo">
+                    <img src="images/IMG_3434(1).JPG" alt="Astita Suntiasih" class="couple-photo">
                     <h3>Astita Suntiasih</h3>
                     <p class="nickname">Tita</p>
                     <p>Putri dari Bapak Parta., S.Pd & Ibu Sunarsih</p>
@@ -127,7 +121,7 @@
                 </div>
 
                 <div class="couple-card" data-aos="fade-left">
-                    <img src="images/IMG_3416.JPG" alt="Muhammad Irfan" class="couple-photo">
+                    <img src="images/IMG_3438.JPG" alt="Muhammad Irfan" class="couple-photo">
                     <h3>Muhammad Irfan</h3>
                     <p class="nickname">Irfan</p>
                     <p>Putra dari Bapak Muh. Idris & (Alm) Ibu Mustiati</p>
@@ -426,5 +420,56 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    <script>
+    // Guest name functionality
+    const params = new URLSearchParams(document.location.search);
+    let to = params.get("to");
+    if(to){
+        document.getElementById("write").innerHTML = ""+to;
+        document.getElementById("write").style.textAlign="center"
+    }
+
+    // Smooth scroll to invitation section
+    document.querySelector('.btn-open').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('invitation').scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+
+    // Reveal animation on scroll
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+    </script>
+
+    <style>
+    .reveal{
+      position: relative;
+      transform: translateY(6rem) scale(0.93);
+      opacity: 0;
+      transition: 1s all ease;
+    }
+
+    .reveal.active{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    </style>
 </body>
 </html>

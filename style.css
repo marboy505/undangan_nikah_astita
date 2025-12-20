@@ -26,19 +26,142 @@ body::before {
     z-index: -1;
 }
 
-/* Monochrome Blue Theme Colors */
+/* Monochrome Theme Colors */
 :root {
-    --primary-color: #6EC1E4;
-    --secondary-color: #5AB8DB;
-    --accent-color: #4AA9D0;
-    --light-color: #F5F7FA;
-    --dark-color: #32373c;
-    --text-color: #555555;
-    --border-color: #E0E4E8;
-    --blue-accent: #6EC1E4;
-    --gray-dark: #777777;
-    --gray-light: #EEEEEE;
+    --primary-color: #000000;
+    --secondary-color: #333333;
+    --accent-color: #666666;
+    --light-color: #FFFFFF;
+    --dark-color: #000000;
+    --text-color: #333333;
+    --border-color: #CCCCCC;
+    --gray-dark: #666666;
+    --gray-light: #F5F5F5;
     --white: #FFFFFF;
+    --black: #000000;
+}
+
+/* Home Section - Landing Page */
+.home-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--black);
+    color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.home-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('images/IMG_3415.JPG') center/cover no-repeat;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.couple-name {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+}
+
+.couple-name h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+}
+
+.couple-name h1:first-child {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.guest-name {
+    margin: 2rem 0;
+}
+
+.guest-name p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.open-button {
+    margin-top: 2rem;
+}
+
+.btn-open {
+    background: transparent;
+    border: 2px solid var(--white);
+    color: var(--white);
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-open:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* Invitation Section */
+.invitation-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
+.invitation-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 2rem;
+}
+
+.couple-names h1 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: var(--black);
+    line-height: 1.2;
+}
+
+.wedding-date h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--black);
+    font-weight: 400;
+}
+
+.wedding-quote {
+    margin-bottom: 2rem;
+}
+
+.wedding-quote p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+}
+
+.wedding-quote p:last-child {
+    font-style: italic;
+    font-size: 1rem;
+    opacity: 0.7;
 }
 
 /* Enhanced Typography */
