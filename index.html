@@ -3,6 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Undangan Pernikahan Muhammad Irfan & Astita Suntiasih - 11 Januari 2026">
+    <meta name="keywords" content="undangan pernikahan, wedding invitation, Muhammad Irfan, Astita Suntiasih">
+    <meta name="author" content="Muhammad Irfan & Astita Suntiasih">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Undangan Pernikahan Muhammad Irfan & Astita Suntiasih">
+    <meta property="og:description" content="Bergabunglah dalam perayaan cinta kami - 11 Januari 2026">
+    <meta property="og:image" content="images/IMG_3415.JPG">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Undangan Pernikahan Muhammad Irfan & Astita Suntiasih</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -57,7 +66,16 @@
                     <p id="write"></p>
                 </div>
                 <div class="open-button">
-                    <a href="#invitation" class="btn-open">Buka Undangan</a>
+                    <a href="#invitation" class="btn-open" id="open-btn">
+                        <span class="btn-text">Buka Undangan</span>
+                        <div class="btn-loader" style="display: none;">
+                            <div class="loader-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -240,31 +258,31 @@
             <h2 data-aos="fade-up">Galeri</h2>
             <div class="gallery-grid">
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox(this.src, this.alt, 0)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox(this.dataset.src, this.alt, 0)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox(this.src, this.alt, 1)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox(this.dataset.src, this.alt, 1)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox(this.src, this.alt, 2)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox(this.dataset.src, this.alt, 2)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/IMG_3423.JPG" alt="Galeri 4" onclick="openLightbox(this.src, this.alt, 3)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3423.JPG" alt="Galeri 4" onclick="openLightbox(this.dataset.src, this.alt, 3)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/IMG_3426.JPG" alt="Galeri 5" onclick="openLightbox(this.src, this.alt, 4)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3426.JPG" alt="Galeri 5" onclick="openLightbox(this.dataset.src, this.alt, 4)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/IMG_3428.JPG" alt="Galeri 6" onclick="openLightbox(this.src, this.alt, 5)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3428.JPG" alt="Galeri 6" onclick="openLightbox(this.dataset.src, this.alt, 5)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="images/IMG_3429.JPG" alt="Galeri 7" onclick="openLightbox(this.src, this.alt, 6)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3429.JPG" alt="Galeri 7" onclick="openLightbox(this.dataset.src, this.alt, 6)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="images/IMG_3432.JPG" alt="Galeri 8" onclick="openLightbox(this.src, this.alt, 7)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3432.JPG" alt="Galeri 8" onclick="openLightbox(this.dataset.src, this.alt, 7)" loading="lazy">
                 </div>
                 <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="images/IMG_3433.JPG" alt="Galeri 9" onclick="openLightbox(this.src, this.alt, 8)">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/IMG_3433.JPG" alt="Galeri 9" onclick="openLightbox(this.dataset.src, this.alt, 8)" loading="lazy">
                 </div>
             </div>
         </div>
@@ -418,6 +436,11 @@
 
     <a id="scroll-top" class="scroll-top" href="#" style="display: none;"><i class="fas fa-arrow-up"></i></a>
 
+    <!-- Dark Mode Toggle -->
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 
@@ -434,20 +457,39 @@
     document.querySelector('.btn-open').addEventListener('click', function(e) {
         e.preventDefault();
 
-        // Show all hidden sections
-        const hiddenSections = document.querySelectorAll('section[style*="display: none"]');
-        hiddenSections.forEach(section => {
-            section.style.display = 'block';
-        });
+        const btn = this;
+        const btnText = btn.querySelector('.btn-text');
+        const loader = btn.querySelector('.btn-loader');
 
-        // Start background music
-        const bgMusic = document.getElementById('bg-music');
-        bgMusic.play().catch(e => console.log("Music play prevented: ", e));
+        // Show loading state
+        btn.classList.add('loading');
+        btnText.style.display = 'none';
+        loader.style.display = 'flex';
 
-        // Scroll to invitation section
-        document.getElementById('invitation').scrollIntoView({
-            behavior: 'smooth'
-        });
+        // Simulate loading delay for better UX
+        setTimeout(() => {
+            // Show all hidden sections
+            const hiddenSections = document.querySelectorAll('section[style*="display: none"]');
+            hiddenSections.forEach(section => {
+                section.style.display = 'block';
+            });
+
+            // Start background music
+            const bgMusic = document.getElementById('bg-music');
+            bgMusic.play().catch(e => console.log("Music play prevented: ", e));
+
+            // Scroll to invitation section
+            document.getElementById('invitation').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Hide loading state after animation
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                btnText.style.display = 'inline';
+                loader.style.display = 'none';
+            }, 1000);
+        }, 800);
     });
 
     // Reveal animation on scroll
@@ -468,6 +510,104 @@
     }
 
     window.addEventListener("scroll", reveal);
+
+    // Lazy loading for images
+    function lazyLoadImages() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+    // Initialize lazy loading
+    document.addEventListener('DOMContentLoaded', lazyLoadImages);
+
+    // Error handling for images
+    document.addEventListener('error', function(e) {
+        if (e.target.tagName.toLowerCase() === 'img') {
+            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZSBFcnJvcjwvdGV4dD48L3N2Zz4=';
+        }
+    }, true);
+
+    // Service worker registration for PWA features
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/sw.js')
+                .then(function(registration) {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(function(registrationError) {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+
+    // Dark mode toggle functionality
+    const themeToggle = document.getElementById('theme-toggle');
+    const themeIcon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to light mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    if (currentTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+
+    // Toggle theme
+    themeToggle.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+
+        let theme = 'light';
+        if (document.body.classList.contains('dark-mode')) {
+            theme = 'dark';
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+
+        // Save theme preference
+        localStorage.setItem('theme', theme);
+    });
+
+    // Share functionality
+    function shareWedding() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Undangan Pernikahan Muhammad Irfan & Astita Suntiasih',
+                text: 'Bergabunglah dalam perayaan cinta kami - 11 Januari 2026',
+                url: window.location.href
+            });
+        } else {
+            // Fallback: copy URL to clipboard
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link undangan berhasil disalin!');
+            });
+        }
+    }
+
+    // Add share button to footer if supported
+    if (navigator.share || navigator.clipboard) {
+        const footer = document.querySelector('.footer .container');
+        const shareBtn = document.createElement('button');
+        shareBtn.className = 'share-btn';
+        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> Bagikan Undangan';
+        shareBtn.onclick = shareWedding;
+        footer.appendChild(shareBtn);
+    }
     </script>
 
     <style>
