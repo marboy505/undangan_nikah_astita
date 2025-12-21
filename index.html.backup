@@ -3,7 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Undangan Pernikahan Muhammad Irfan & Astita Suntiasih - 11 Januari 2026">
+    <meta name="keywords" content="undangan pernikahan, wedding invitation, Muhammad Irfan, Astita Suntiasih">
+    <meta name="author" content="Muhammad Irfan & Astita Suntiasih">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Undangan Pernikahan Muhammad Irfan & Astita Suntiasih">
+    <meta property="og:description" content="Bergabunglah dalam perayaan cinta kami - 11 Januari 2026">
+    <meta property="og:image" content="images/IMG_3415.JPG">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta name="twitter:card" content="summary_large_image">
     <title>Undangan Pernikahan Muhammad Irfan & Astita Suntiasih</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,7 +21,7 @@
 </head>
 <body>
     <!-- Loader -->
-    <div id="loader" class="loader">
+    <!-- <div id="loader" class="loader">
         <div class="loader-content">
             <div class="loader-animation">
                 <i class="fas fa-ring"></i>
@@ -19,7 +29,7 @@
             <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
             <p>Teriring doa dan pengharapan, kami mengundang Bapak/Ibu/Saudara/i</p>
         </div>
-    </div>
+    </div> -->
 
     <!-- Music Player -->
     <audio id="bg-music" loop>
@@ -28,7 +38,7 @@
     </audio>
 
     <!-- Header -->
-    <header class="header">
+    <!-- <header class="header">
         <div class="music-toggle">
             <i class="fas fa-music" id="music-icon"></i>
         </div>
@@ -36,58 +46,101 @@
             <ul>
                 <li><a href="#home">Beranda</a></li>
                 <li><a href="#couple">Pasangan</a></li>
+                <li><a href="#timeline">Love Story</a></li>
                 <li><a href="#event">Acara</a></li>
                 <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#gift">Love Gift</a></li>
                 <li><a href="#rsvp">Konfirmasi</a></li>
                 <li><a href="#wishes">Ucapan</a></li>
             </ul>
         </nav>
-    </header>
+    </header> -->
 
     <!-- Home Section -->
     <section id="home" class="home-section">
-        <div class="container">
-            <div class="couple-name" data-aos="fade-up">
-                <h1>Muhammad Irfan & Astita Suntiasih</h1>
-                <div class="divider"></div>
-                <p>Menuju Hari Bahagia Kami</p>
+        <!-- Top Section: Title and Date -->
+        <div class="couple-name-top" data-aos="fade-down">
+            <h1 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9); color: #000;">The Wedding of</h1>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: #000000; margin-bottom: 1rem; letter-spacing: 1px; line-height: 1.4; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9);">Muhammad Irfan & Astita Suntiasih</h1>
+            <h3 style="font-size: 1.3rem; color: #000000; font-weight: 700; margin: 0.5rem 0; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9);">11 Januari 2026</h3>
+        </div>
+
+        <!-- Bottom Section: Guest Name and Button -->
+        <div class="couple-name-bottom" data-aos="fade-up">
+            <p style="font-size: 1.1rem; color: #000000; margin-bottom: 0.5rem; font-weight: 600; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);">Kepada YTH:</p>
+            <div class="guest-name">
+                <p id="write" style="font-weight: 700; font-size: 1.5rem; color: #000; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem;"></p>
             </div>
-            
-            <div class="countdown" data-aos="fade-up" data-aos-delay="300">
-                <div class="date-display">
-                    <div class="date-box">
-                        <span id="day">00</span>
-                        <p>Hari</p>
+            <div class="open-button">
+                <a href="#invitation" class="btn-open" id="open-btn">
+                    <span class="btn-text">Buka Undangan</span>
+                    <div class="btn-loader" style="display: none;">
+                        <div class="loader-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
-                    <div class="date-box">
-                        <span id="hour">00</span>
-                        <p>Jam</p>
-                    </div>
-                    <div class="date-box">
-                        <span id="minute">00</span>
-                        <p>Menit</p>
-                    </div>
-                    <div class="date-box">
-                        <span id="second">00</span>
-                        <p>Detik</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="invitation-text" data-aos="fade-up" data-aos-delay="600">
-                <p>"Dan diantara tanda-tanda (kebesaran)-Nya ialah bahwa Dia menciptakan pasangan-pasangan untukmu dari (jenis) dirimu sendiri agar kamu merasa tentram kepadanya. Dia menjadikan di antaramu rasa cinta dan kasih sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda (Kebesaran Allah) bagi kaum yang berpikir"</p>
-                <p style="font-style: italic; margin-top: 1rem; font-size: 1rem;">(Q.S Ar-Rum : 21)</p>
-            </div>
-            
-            <div class="scroll-down-indicator" data-aos="fade-up" data-aos-delay="900">
-                <i class="fas fa-chevron-down"></i>
-                <span>Scroll untuk melihat lebih lanjut</span>
+                </a>
             </div>
         </div>
     </section>
 
+    <!-- Invitation Section -->
+    <section id="invitation" class="invitation-section" style="display: none;">
+        <div class="invitation-content">
+            <div class="couple-names reveal">
+                <h1>Muhammad Irfan & Astita Suntiasih</h1>
+            </div>
+
+            <div class="wedding-date reveal">
+                <h2>11 . 01 . 2026</h2>
+            </div>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-timer reveal">
+                <div class="countdown-box">
+                    <span id="day">00</span>
+                    <p>Hari</p>
+                </div>
+                <div class="countdown-box">
+                    <span id="hour">00</span>
+                    <p>Jam</p>
+                </div>
+                <div class="countdown-box">
+                    <span id="minute">00</span>
+                    <p>Menit</p>
+                </div>
+                <div class="countdown-box">
+                    <span id="second">00</span>
+                    <p>Detik</p>
+                </div>
+            </div>
+
+            <div class="wedding-quote reveal">
+                <p>"A great marriage is not when the 'perfect couple' comes together. It is when an 'imperfect couple' learns to enjoy their differences."</p>
+                <p>- Dave Meurer -</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- We Are Getting Married Section -->
+    <!-- <section id="intro" class="intro-section" style="display: none;">
+        <div class="container">
+            <div class="intro-content" data-aos="fade-up">
+                <h2>We Are Getting Married</h2>
+                <p>Dengan penuh rasa syukur dan kebahagiaan, kami mengundang Bapak/Ibu/Saudara/i untuk berbagi kebahagiaan bersama kami dalam acara pernikahan yang akan dilaksanakan pada:</p>
+                <div class="wedding-date">
+                    <h3 style="font-size: 1.8rem; color: #6EC1E4; margin-top: 1.5rem;">11 Januari 2026</h3>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+
+
     <!-- Couple Section -->
-    <section id="couple" class="couple-section">
+    <section id="couple" class="couple-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
             
@@ -96,7 +149,7 @@
             
             <div class="couple-grid">
                 <div class="couple-card" data-aos="fade-right">
-                    <img src="images/IMG_3415.JPG" alt="Astita Suntiasih" class="couple-photo">
+                    <img src="images/IMG_3434(1).JPG" alt="Astita Suntiasih" class="couple-photo">
                     <h3>Astita Suntiasih</h3>
                     <p class="nickname">Tita</p>
                     <p>Putri dari Bapak Parta., S.Pd & Ibu Sunarsih</p>
@@ -110,7 +163,7 @@
                 </div>
 
                 <div class="couple-card" data-aos="fade-left">
-                    <img src="images/IMG_3416.JPG" alt="Muhammad Irfan" class="couple-photo">
+                    <img src="images/IMG_3438.JPG" alt="Muhammad Irfan" class="couple-photo">
                     <h3>Muhammad Irfan</h3>
                     <p class="nickname">Irfan</p>
                     <p>Putra dari Bapak Muh. Idris & (Alm) Ibu Mustiati</p>
@@ -122,17 +175,82 @@
             
             <div class="couple-story" data-aos="fade-up" data-aos-delay="500">
                 <h3>Cerita Kami</h3>
-                <p>Dengan memohon rahmat dan ridho Allah SWT, kami akan menyelenggarakan acara pernikahan kami. Cinta tumbuh dari saling mengenal, saling memahami, dan saling melengkapi. Muhammad Irfan dan Astita Suntiasih telah menjalin hubungan yang penuh kasih dan pengertian, dan kini kami siap melangkah ke jenjang pernikahan.</p>
-                <p>Dengan memohon doa restu dari Bapak, Ibu, dan saudara/i sekalian, kami ingin membagikan kebahagiaan ini dengan kehadiran Anda pada hari pernikahan kami.</p>
+                <p>Kami pertama kali saling mengenal sebagai teman kuliah di tahun 2015. Bertemu dalam rutinitas kampus yang sederhana, hingga sebuah acara mempertemukan kami lebih dekat saat kami berada dalam satu panitia yang sama.</p>
+
+                <p>Kebersamaan itu perlahan menumbuhkan rasa, namun waktu membawa kami pada jalan yang berbeda. Selama tujuh tahun, kami berjalan masing-masing, tanpa kabar, tanpa cerita, hanya menyimpan kenangan yang pernah ada.</p>
+
+                <p>Hingga takdir kembali mempertemukan kami melalui sebuah pesan sederhana di Instagram. Percakapan yang terulang membuka kembali cerita lama, namun kali ini dengan versi yang lebih dewasa dan penuh keyakinan.</p>
+
+                <p>Dengan niat yang tulus dan kesungguhan hati, kami memutuskan untuk melangkah ke arah yang lebih serius. Setelah Lebaran, keluarga kami pun dipertemukan untuk menyampaikan niat baik dan membicarakan masa depan bersama.</p>
+
+                <p>Kini, dengan penuh rasa syukur, kami memilih untuk melanjutkan kisah ini dalam sebuah ikatan suci pernikahan, sebagai awal perjalanan seumur hidup bersama.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Love Story Timeline Section -->
+    <section id="timeline" class="timeline-section" style="display: none;">
+        <div class="container">
+            <h2 data-aos="fade-up">Love Story</h2>
+            <div class="timeline">
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-date">
+                        <h3>2015</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Pertemuan Pertama</h4>
+                        <p>Kami pertama kali saling mengenal sebagai teman kuliah di tahun 2015. Bertemu dalam rutinitas kampus yang sederhana, hingga sebuah acara mempertemukan kami lebih dekat saat kami berada dalam satu panitia yang sama.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-date">
+                        <h3>2015-2022</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Jalan Berbeda</h4>
+                        <p>Kebersamaan itu perlahan menumbuhkan rasa, namun waktu membawa kami pada jalan yang berbeda. Selama tujuh tahun, kami berjalan masing-masing, tanpa kabar, tanpa cerita, hanya menyimpan kenangan yang pernah ada.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-date">
+                        <h3>2022</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Takdir Mempertemukan Kembali</h4>
+                        <p>Hingga takdir kembali mempertemukan kami melalui sebuah pesan sederhana di Instagram. Percakapan yang terulang membuka kembali cerita lama, namun kali ini dengan versi yang lebih dewasa dan penuh keyakinan.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-left">
+                    <div class="timeline-date">
+                        <h3>2025</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Langkah Serius</h4>
+                        <p>Dengan niat yang tulus dan kesungguhan hati, kami memutuskan untuk melangkah ke arah yang lebih serius. Setelah Lebaran, keluarga kami pun dipertemukan untuk menyampaikan niat baik dan membicarakan masa depan bersama.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-aos="fade-right">
+                    <div class="timeline-date">
+                        <h3>2026</h3>
+                    </div>
+                    <div class="timeline-content">
+                        <h4>Ikatan Suci</h4>
+                        <p>Kini, dengan penuh rasa syukur, kami memilih untuk melanjutkan kisah ini dalam sebuah ikatan suci pernikahan, sebagai awal perjalanan seumur hidup bersama.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Event Details Section -->
-    <section id="event" class="event-section">
+    <section id="event" class="event-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Acara Pernikahan</h2>
-            
+
             <div class="event-grid">
                 <div class="event-card" data-aos="fade-up">
                     <i class="fas fa-calendar-day"></i>
@@ -176,60 +294,145 @@
     </section>
 
     <!-- Gallery Section -->
-    <section id="gallery" class="gallery-section">
+    <section id="gallery" class="gallery-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Galeri</h2>
-            <div class="gallery-slider-container">
-                <div class="gallery-slider">
-                    <div class="gallery-slide active">
-                        <img src="images/IMG_3415.JPG" alt="Galeri 1">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3416.JPG" alt="Galeri 2">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3420.JPG" alt="Galeri 3">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3423.JPG" alt="Galeri 4">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3426.JPG" alt="Galeri 5">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3428.JPG" alt="Galeri 6">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3429.JPG" alt="Galeri 7">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3432.JPG" alt="Galeri 8">
-                    </div>
-                    <div class="gallery-slide">
-                        <img src="images/IMG_3433.JPG" alt="Galeri 9">
-                    </div>
+
+            <!-- Gallery Carousel Container -->
+            <div class="gallery-carousel-container" data-aos="fade-up">
+                <!-- Main Display Area -->
+                <div class="gallery-main-display">
+                    <img id="main-gallery-img" src="images/optimized/IMG_3415_optimized.jpg" alt="Gallery Photo">
                 </div>
-                <div class="slider-nav">
-                    <button class="prev" onclick="changeSlide(-1)">❮</button>
-                    <button class="next" onclick="changeSlide(1)">❯</button>
-                </div>
-                <div class="slider-indicators">
-                    <span class="dot active" onclick="currentSlide(1)"></span>
-                    <span class="dot" onclick="currentSlide(2)"></span>
-                    <span class="dot" onclick="currentSlide(3)"></span>
-                    <span class="dot" onclick="currentSlide(4)"></span>
-                    <span class="dot" onclick="currentSlide(5)"></span>
-                    <span class="dot" onclick="currentSlide(6)"></span>
-                    <span class="dot" onclick="currentSlide(7)"></span>
-                    <span class="dot" onclick="currentSlide(8)"></span>
-                    <span class="dot" onclick="currentSlide(9)"></span>
+
+                <!-- Thumbnail Strip (Auto-Scroll) -->
+                <div class="gallery-thumbnails-wrapper">
+                    <div class="gallery-thumbnails" id="gallery-thumbnails">
+                        <!-- Original set of thumbnails -->
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3415_optimized.jpg', 0)">
+                            <img src="images/optimized/IMG_3415_optimized.jpg" alt="Galeri 1" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3416_optimized.jpg', 1)">
+                            <img src="images/optimized/IMG_3416_optimized.jpg" alt="Galeri 2" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3420_optimized.jpg', 2)">
+                            <img src="images/optimized/IMG_3420_optimized.jpg" alt="Galeri 3" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3423_optimized.jpg', 3)">
+                            <img src="images/optimized/IMG_3423_optimized.jpg" alt="Galeri 4" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3426_optimized.jpg', 4)">
+                            <img src="images/optimized/IMG_3426_optimized.jpg" alt="Galeri 5" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3428_optimized.jpg', 5)">
+                            <img src="images/optimized/IMG_3428_optimized.jpg" alt="Galeri 6" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3429_optimized.jpg', 6)">
+                            <img src="images/optimized/IMG_3429_optimized.jpg" alt="Galeri 7" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3432_optimized.jpg', 7)">
+                            <img src="images/optimized/IMG_3432_optimized.jpg" alt="Galeri 8" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3433_optimized.jpg', 8)">
+                            <img src="images/optimized/IMG_3433_optimized.jpg" alt="Galeri 9" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3434(1)_optimized.jpg', 9)">
+                            <img src="images/optimized/IMG_3434(1)_optimized.jpg" alt="Galeri 10" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3438_optimized.jpg', 10)">
+                            <img src="images/optimized/IMG_3438_optimized.jpg" alt="Galeri 11" loading="lazy">
+                        </div>
+                        <!-- Duplicate set for infinite scroll effect -->
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3415_optimized.jpg', 0)">
+                            <img src="images/optimized/IMG_3415_optimized.jpg" alt="Galeri 1" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3416_optimized.jpg', 1)">
+                            <img src="images/optimized/IMG_3416_optimized.jpg" alt="Galeri 2" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3420_optimized.jpg', 2)">
+                            <img src="images/optimized/IMG_3420_optimized.jpg" alt="Galeri 3" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3423_optimized.jpg', 3)">
+                            <img src="images/optimized/IMG_3423_optimized.jpg" alt="Galeri 4" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3426_optimized.jpg', 4)">
+                            <img src="images/optimized/IMG_3426_optimized.jpg" alt="Galeri 5" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3428_optimized.jpg', 5)">
+                            <img src="images/optimized/IMG_3428_optimized.jpg" alt="Galeri 6" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3429_optimized.jpg', 6)">
+                            <img src="images/optimized/IMG_3429_optimized.jpg" alt="Galeri 7" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3432_optimized.jpg', 7)">
+                            <img src="images/optimized/IMG_3432_optimized.jpg" alt="Galeri 8" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3433_optimized.jpg', 8)">
+                            <img src="images/optimized/IMG_3433_optimized.jpg" alt="Galeri 9" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3434(1)_optimized.jpg', 9)">
+                            <img src="images/optimized/IMG_3434(1)_optimized.jpg" alt="Galeri 10" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3438_optimized.jpg', 10)">
+                            <img src="images/optimized/IMG_3438_optimized.jpg" alt="Galeri 11" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Love Gift Section -->
+    <section id="gift" class="gift-section" style="display: none;">
+        <div class="container">
+            <h2 data-aos="fade-up">Love Gift</h2>
+            <div class="gift-intro" data-aos="fade-up">
+                <p>Doa restu Bapak/Ibu/Saudara/i merupakan karunia yang sangat berarti bagi kami. Namun apabila memberi adalah ungkapan tanda kasih, kami dengan senang hati menerimanya.</p>
+            </div>
+
+            <div class="gift-cards">
+                <div class="gift-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bank-logo">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <h3>Bank BCA</h3>
+                    <div class="account-details">
+                        <p class="account-number" id="bca-account">2831714346</p>
+                        <p class="account-name">a.n. Astita Suntiasih</p>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('bca-account')">
+                        <i class="fas fa-copy"></i> Salin Nomor Rekening
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Address Section -->
+    <section id="address" class="address-section" style="display: none;">
+        <div class="container">
+            <h2 data-aos="fade-up">Kirim Hadiah</h2>
+            <div class="address-content" data-aos="fade-up">
+                <div class="address-icon">
+                    <i class="fas fa-map-marked-alt"></i>
+                </div>
+                <h3>Alamat Pengiriman</h3>
+                <div class="address-details">
+                    <p>Muhammad Irfan & Astita Suntiasih</p>
+                    <p>Jl. Contoh Alamat No. 123, RT/RW 001/002</p>
+                    <p>Kelurahan Contoh, Kecamatan Contoh</p>
+                    <p>Kota Bandung, Jawa Barat 40123</p>
+                    <p>Telepon: +62 812-3456-7890</p>
+                </div>
+                <button class="copy-btn" onclick="copyAddress()">
+                    <i class="fas fa-copy"></i> Salin Alamat
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- RSVP Section -->
-    <section id="rsvp" class="rsvp-section">
+    <section id="rsvp" class="rsvp-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Konfirmasi Kehadiran</h2>
             <div class="rsvp-content">
@@ -246,7 +449,7 @@
                     <div class="form-group">
                         <input type="text" id="name" placeholder="Nama Lengkap" required>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Jumlah Kehadiran:</label>
                         <select id="attendance" required>
@@ -257,7 +460,7 @@
                             <option value="4">4 Orang</option>
                         </select>
                     </div>
-                    
+
                     <div class="form-group">
                         <label>Konfirmasi Kehadiran:</label>
                         <div class="radio-group">
@@ -265,11 +468,11 @@
                             <label><input type="radio" name="confirm" value="tidak"> Tidak Hadir</label>
                         </div>
                     </div>
-                    
+
                     <div class="form-group">
                         <textarea id="message" placeholder="Ucapan / Doa"></textarea>
                     </div>
-                    
+
                     <button type="submit">Kirim Konfirmasi</button>
                 </form>
             </div>
@@ -277,29 +480,29 @@
     </section>
 
     <!-- Wishes Section -->
-    <section id="wishes" class="wishes-section">
+    <section id="wishes" class="wishes-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Ucapan & Doa</h2>
             <div id="wishes-container">
                 <!-- Ucapan akan ditampilkan di sini -->
             </div>
-            
+
             <form id="wishes-form" data-aos="fade-up">
                 <div class="form-group">
                     <input type="text" id="wishes-name" placeholder="Nama" required>
                 </div>
-                
+
                 <div class="form-group">
                     <textarea id="wishes-message" placeholder="Ucapan & Doa" required></textarea>
                 </div>
-                
+
                 <button type="submit">Kirim Ucapan</button>
             </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" style="display: none;">
         <div class="container">
             <p>© 2026 Muhammad Irfan & Astita Suntiasih. Dengan penuh cinta.</p>
             <div class="social-links">
@@ -310,10 +513,165 @@
             <p class="footer-note">Acara ini diselenggarakan dengan tetap memperhatikan protokol kesehatan</p>
         </div>
     </footer>
-    
-    <a id="scroll-top" class="scroll-top" href="#"><i class="fas fa-arrow-up"></i></a>
+
+    <a id="scroll-top" class="scroll-top" href="#" style="display: none;"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
+
+    <script>
+    // Guest name functionality
+    const params = new URLSearchParams(document.location.search);
+    let to = params.get("to");
+    if(to){
+        document.getElementById("write").innerHTML = ""+to;
+        document.getElementById("write").style.textAlign="center"
+    }
+
+    // Handle "Buka Undangan" button click
+    document.querySelector('.btn-open').addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const btn = this;
+        const btnText = btn.querySelector('.btn-text');
+        const loader = btn.querySelector('.btn-loader');
+
+        // Show loading state
+        btn.classList.add('loading');
+        btnText.style.display = 'none';
+        loader.style.display = 'flex';
+
+        // Simulate loading delay for better UX
+        setTimeout(() => {
+            // Hide home section
+            document.getElementById('home').style.display = 'none';
+
+            // Show all hidden sections
+            const hiddenSections = document.querySelectorAll('section[style*="display: none"]');
+            hiddenSections.forEach(section => {
+                section.style.display = 'block';
+            });
+
+            // Start background music
+            const bgMusic = document.getElementById('bg-music');
+            bgMusic.play().catch(e => console.log("Music play prevented: ", e));
+
+            // Scroll to invitation section
+            document.getElementById('invitation').scrollIntoView({
+                behavior: 'smooth'
+            });
+
+            // Hide loading state after animation
+            setTimeout(() => {
+                btn.classList.remove('loading');
+                btnText.style.display = 'inline';
+                loader.style.display = 'none';
+            }, 1000);
+        }, 800);
+    });
+
+    // Reveal animation on scroll
+    function reveal() {
+      var reveals = document.querySelectorAll(".reveal");
+
+      for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+
+        if (elementTop < windowHeight - elementVisible) {
+          reveals[i].classList.add("active");
+        } else {
+          reveals[i].classList.remove("active");
+        }
+      }
+    }
+
+    window.addEventListener("scroll", reveal);
+
+    // Lazy loading for images
+    function lazyLoadImages() {
+        const images = document.querySelectorAll('img[data-src]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+    // Initialize lazy loading
+    document.addEventListener('DOMContentLoaded', lazyLoadImages);
+
+    // Error handling for images
+    document.addEventListener('error', function(e) {
+        if (e.target.tagName.toLowerCase() === 'img') {
+            e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZSBFcnJvcjwvdGV4dD48L3N2Zz4=';
+        }
+    }, true);
+
+    // Service worker registration for PWA features
+    // Disabled until sw.js is created
+    // if ('serviceWorker' in navigator) {
+    //     window.addEventListener('load', function() {
+    //         navigator.serviceWorker.register('/sw.js')
+    //             .then(function(registration) {
+    //                 console.log('SW registered: ', registration);
+    //             })
+    //             .catch(function(registrationError) {
+    //                 console.log('SW registration failed: ', registrationError);
+    //             });
+    //     });
+    // }
+
+
+    // Share functionality
+    function shareWedding() {
+        if (navigator.share) {
+            navigator.share({
+                title: 'Undangan Pernikahan Muhammad Irfan & Astita Suntiasih',
+                text: 'Bergabunglah dalam perayaan cinta kami - 11 Januari 2026',
+                url: window.location.href
+            });
+        } else {
+            // Fallback: copy URL to clipboard
+            navigator.clipboard.writeText(window.location.href).then(() => {
+                alert('Link undangan berhasil disalin!');
+            });
+        }
+    }
+
+    // Add share button to footer if supported
+    if (navigator.share || navigator.clipboard) {
+        const footer = document.querySelector('.footer .container');
+        const shareBtn = document.createElement('button');
+        shareBtn.className = 'share-btn';
+        shareBtn.innerHTML = '<i class="fas fa-share-alt"></i> Bagikan Undangan';
+        shareBtn.onclick = shareWedding;
+        footer.appendChild(shareBtn);
+    }
+    </script>
+
+    <style>
+    .reveal{
+      position: relative;
+      transform: translateY(6rem) scale(0.93);
+      opacity: 0;
+      transition: 1s all ease;
+    }
+
+    .reveal.active{
+      transform: translateY(0);
+      opacity: 1;
+    }
+    </style>
 </body>
 </html>
