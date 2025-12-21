@@ -17,22 +17,29 @@ window.addEventListener('load', function() {
 // Music toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
     const bgMusic = document.getElementById('bg-music');
-    // const musicIcon = document.getElementById('music-icon'); // Commented out as header is hidden
+    const musicIcon = document.getElementById('music-icon');
 
     bgMusic.volume = 0.3; // Set volume to 30%
 
-    // Music will start when "Buka Undangan" is clicked
-    // musicIcon.addEventListener('click', function() {
-    //     if (bgMusic.paused) {
-    //         bgMusic.play();
-    //         musicIcon.style.color = '#d4a76a';
-    //         musicIcon.classList.add('playing');
-    //     } else {
-    //         bgMusic.pause();
-    //         musicIcon.style.color = '#8e5e3d';
-    //         musicIcon.classList.remove('playing');
-    //     }
-    // });
+    // Music toggle functionality
+    musicIcon.addEventListener('click', function() {
+        if (bgMusic.paused) {
+            bgMusic.play()
+                .then(() => {
+                    musicIcon.style.color = '#d4a76a';
+                    musicIcon.classList.add('playing');
+                })
+                .catch(e => {
+                    console.log("Music play prevented: ", e);
+                    // Show user prompt to enable audio if needed
+                    alert("Audio playback was prevented. Please interact with the page to enable music.");
+                });
+        } else {
+            bgMusic.pause();
+            musicIcon.style.color = '#8e5e3d';
+            musicIcon.classList.remove('playing');
+        }
+    });
 });
 
 // Countdown timer
@@ -89,13 +96,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // RSVP Form Submission
 document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     // Get form values
     const name = document.getElementById('name').value;
     const attendance = document.getElementById('attendance').value;
     const confirmValue = document.querySelector('input[name="confirm"]:checked').value;
     const message = document.getElementById('message').value;
-    
+
     // Create RSVP object
     const rsvpData = {
         name: name,
@@ -104,16 +111,16 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
         message: message,
         timestamp: new Date()
     };
-    
+
     // In a real application, you would send this data to a server
     // For this example, we'll store in localStorage
     let rsvps = JSON.parse(localStorage.getItem('rsvps')) || [];
     rsvps.push(rsvpData);
     localStorage.setItem('rsvps', JSON.stringify(rsvps));
-    
+
     // Show confirmation message
     alert(`Terima kasih ${name} atas konfirmasi kehadiran Anda!`);
-    
+
     // Reset form
     this.reset();
 });
@@ -126,23 +133,23 @@ function getAllRsvps() {
 // Wishes Form Submission
 document.getElementById('wishes-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    
+
     const name = document.getElementById('wishes-name').value;
     const message = document.getElementById('wishes-message').value;
     const date = new Date().toLocaleDateString('id-ID');
-    
+
     // Create wishes object
     const wishData = {
         name: name,
         message: message,
         date: date
     };
-    
+
     // Store in localStorage
     let wishes = JSON.parse(localStorage.getItem('wishes')) || [];
     wishes.push(wishData);
     localStorage.setItem('wishes', JSON.stringify(wishes));
-    
+
     // Create new wishes element
     const wishesContainer = document.getElementById('wishes-container');
     const newWish = document.createElement('div');
@@ -151,10 +158,10 @@ document.getElementById('wishes-form').addEventListener('submit', function(e) {
         <p><strong>${name}</strong> - ${message}</p>
         <small>${date}</small>
     `;
-    
+
     // Add new wish to the top of the container
     wishesContainer.insertBefore(newWish, wishesContainer.firstChild);
-    
+
     // Reset form
     this.reset();
 });
@@ -163,10 +170,10 @@ document.getElementById('wishes-form').addEventListener('submit', function(e) {
 function loadWishes() {
     const wishes = JSON.parse(localStorage.getItem('wishes')) || [];
     const wishesContainer = document.getElementById('wishes-container');
-    
+
     // Clear existing wishes except the template
     wishesContainer.innerHTML = '';
-    
+
     // Add wishes in reverse order (newest first)
     for (let i = wishes.length - 1; i >= 0; i--) {
         const wish = wishes[i];
@@ -240,10 +247,25 @@ function openLightbox(imgSrc, altText, index) {
         navigateLightbox(1);
     };
 
+    // Create image counter
+    const counter = document.createElement('div');
+    counter.className = 'lightbox-counter';
+    counter.innerHTML = `${index + 1} / ${galleryImages.length}`;
+    counter.style.position = 'absolute';
+    counter.style.top = '20px';
+    counter.style.left = '30px';
+    counter.style.color = 'white';
+    counter.style.fontSize = '1.2rem';
+    counter.style.zIndex = '10000';
+    counter.style.background = 'rgba(0, 0, 0, 0.5)';
+    counter.style.padding = '5px 10px';
+    counter.style.borderRadius = '4px';
+
     // Assemble lightbox
     overlay.appendChild(closeBtn);
     overlay.appendChild(prevBtn);
     overlay.appendChild(nextBtn);
+    overlay.appendChild(counter);
     content.appendChild(lightboxImg);
     overlay.appendChild(content);
 
@@ -283,9 +305,13 @@ function navigateLightbox(direction) {
     }
 
     const lightboxImg = document.getElementById('lightbox-img');
+    const counter = document.querySelector('.lightbox-counter');
     if (lightboxImg) {
         lightboxImg.src = galleryImages[currentLightboxIndex];
         lightboxImg.alt = `Galeri ${currentLightboxIndex + 1}`;
+    }
+    if (counter) {
+        counter.innerHTML = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
     }
 }
 
@@ -339,7 +365,7 @@ Telepon: +62 812-3456-7890`;
 // Add scroll to top functionality
 window.addEventListener('scroll', function() {
     const scrollTopButton = document.getElementById('scroll-top');
-    
+
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         scrollTopButton.classList.add('show');
     } else {
@@ -365,11 +391,11 @@ function showLocation() {
 // Animation on scroll enhancement
 function animateOnScroll() {
     const elements = document.querySelectorAll('.event-card, .couple-card, .gallery-item');
-    
+
     elements.forEach(element => {
         const elementPosition = element.getBoundingClientRect().top;
         const screenPosition = window.innerHeight / 1.3;
-        
+
         if (elementPosition < screenPosition) {
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
@@ -407,3 +433,91 @@ function changeMainImage(imageSrc, index) {
         mainImg.alt = `Galeri ${index + 1}`;
     }
 }
+
+// Gallery slider functionality
+let currentSlide = 0;
+const slides = document.querySelectorAll('.gallery-slide');
+const dots = document.querySelectorAll('.dot');
+
+function showSlide(index) {
+    // Hide all slides
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    
+    // Remove active class from all dots
+    dots.forEach(dot => {
+        dot.classList.remove('active');
+    });
+    
+    // Show the current slide
+    if (slides[index]) {
+        slides[index].classList.add('active');
+    }
+    
+    // Show the current dot
+    if (dots[index]) {
+        dots[index].classList.add('active');
+    }
+    
+    currentSlide = index;
+}
+
+// Next/previous controls
+function plusSlides(n) {
+    currentSlide += n;
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    } else if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+    showSlide(currentSlide);
+}
+
+// Thumbnail image controls
+function currentSlideIndex(n) {
+    showSlide(n);
+}
+
+// Auto slide
+let slideInterval = setInterval(() => {
+    plusSlides(1);
+}, 5000);
+
+// Pause auto slide on hover
+const gallerySlider = document.querySelector('.gallery-slider-container');
+if (gallerySlider) {
+    gallerySlider.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+    
+    gallerySlider.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(() => {
+            plusSlides(1);
+        }, 5000);
+    });
+}
+
+// Initialize gallery slider if it exists
+if (slides.length > 0) {
+    showSlide(0);
+}
+
+// Gallery grid lightbox functionality
+document.querySelectorAll('.gallery-item img').forEach((img, index) => {
+    img.addEventListener('click', () => {
+        openLightbox(img.src, img.alt, index);
+    });
+});
+
+// Header scroll effect
+window.addEventListener('scroll', function() {
+    const header = document.querySelector('.header');
+    if (window.scrollY > 100) {
+        header.style.opacity = '1';
+        header.style.visibility = 'visible';
+    } else {
+        header.style.opacity = '0';
+        header.style.visibility = 'hidden';
+    }
+});
