@@ -58,29 +58,30 @@
 
     <!-- Home Section -->
     <section id="home" class="home-section">
-        <div class="container">
-            <div class="couple-name" data-aos="fade-up">
-                <h1>The Wedding of</h1>
-                <h1>Muhammad Irfan & Astita Suntiasih</h1>
-                <div class="wedding-date">
-                    <h3>11 Januari 2026</h3>
-                </div>
-                <p style="margin-top: 2rem;">Kepada YTH:</p>
-                <div class="guest-name">
-                    <p id="write" style="font-weight: 600; font-size: 1.3rem; color: #000;"></p>
-                </div>
-                <div class="open-button">
-                    <a href="#invitation" class="btn-open" id="open-btn">
-                        <span class="btn-text">Buka Undangan</span>
-                        <div class="btn-loader" style="display: none;">
-                            <div class="loader-dots">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+        <!-- Top Section: Title and Date -->
+        <div class="couple-name-top" data-aos="fade-down">
+            <h1 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9); color: #000;">The Wedding of</h1>
+            <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: #000000; margin-bottom: 1rem; letter-spacing: 1px; line-height: 1.4; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9);">Muhammad Irfan & Astita Suntiasih</h1>
+            <h3 style="font-size: 1.3rem; color: #000000; font-weight: 700; margin: 0.5rem 0; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9);">11 Januari 2026</h3>
+        </div>
+
+        <!-- Bottom Section: Guest Name and Button -->
+        <div class="couple-name-bottom" data-aos="fade-up">
+            <p style="font-size: 1.1rem; color: #000000; margin-bottom: 0.5rem; font-weight: 600; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);">Kepada YTH:</p>
+            <div class="guest-name">
+                <p id="write" style="font-weight: 700; font-size: 1.5rem; color: #000; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem;"></p>
+            </div>
+            <div class="open-button">
+                <a href="#invitation" class="btn-open" id="open-btn">
+                    <span class="btn-text">Buka Undangan</span>
+                    <div class="btn-loader" style="display: none;">
+                        <div class="loader-dots">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
-                    </a>
-                </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -279,39 +280,86 @@
     <section id="gallery" class="gallery-section" style="display: none;">
         <div class="container">
             <h2 data-aos="fade-up">Galeri</h2>
-            <div class="gallery-grid">
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3415_optimized.jpg" alt="Galeri 1" onclick="openLightbox(this.dataset.src, this.alt, 0)" loading="lazy">
+
+            <!-- Gallery Carousel Container -->
+            <div class="gallery-carousel-container" data-aos="fade-up">
+                <!-- Main Display Area -->
+                <div class="gallery-main-display">
+                    <img id="main-gallery-img" src="images/optimized/IMG_3415_optimized.jpg" alt="Gallery Photo">
                 </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3416_optimized.jpg" alt="Galeri 2" onclick="openLightbox(this.dataset.src, this.alt, 1)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3420_optimized.jpg" alt="Galeri 3" onclick="openLightbox(this.dataset.src, this.alt, 2)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3423_optimized.jpg" alt="Galeri 4" onclick="openLightbox(this.dataset.src, this.alt, 3)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3426_optimized.jpg" alt="Galeri 5" onclick="openLightbox(this.dataset.src, this.alt, 4)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3428_optimized.jpg" alt="Galeri 6" onclick="openLightbox(this.dataset.src, this.alt, 5)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3429_optimized.jpg" alt="Galeri 7" onclick="openLightbox(this.dataset.src, this.alt, 6)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3432_optimized.jpg" alt="Galeri 8" onclick="openLightbox(this.dataset.src, this.alt, 7)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3433_optimized.jpg" alt="Galeri 9" onclick="openLightbox(this.dataset.src, this.alt, 8)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3434(1)_optimized.jpg" alt="Galeri 10" onclick="openLightbox(this.dataset.src, this.alt, 9)" loading="lazy">
-                </div>
-                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
-                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5Mb2FkaW5nLi4uPC90ZXh0Pjwvc3ZnPg==" data-src="images/optimized/IMG_3438_optimized.jpg" alt="Galeri 11" onclick="openLightbox(this.dataset.src, this.alt, 10)" loading="lazy">
+
+                <!-- Thumbnail Strip (Auto-Scroll) -->
+                <div class="gallery-thumbnails-wrapper">
+                    <div class="gallery-thumbnails" id="gallery-thumbnails">
+                        <!-- Original set of thumbnails -->
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3415_optimized.jpg', 0)">
+                            <img src="images/optimized/IMG_3415_optimized.jpg" alt="Galeri 1" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3416_optimized.jpg', 1)">
+                            <img src="images/optimized/IMG_3416_optimized.jpg" alt="Galeri 2" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3420_optimized.jpg', 2)">
+                            <img src="images/optimized/IMG_3420_optimized.jpg" alt="Galeri 3" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3423_optimized.jpg', 3)">
+                            <img src="images/optimized/IMG_3423_optimized.jpg" alt="Galeri 4" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3426_optimized.jpg', 4)">
+                            <img src="images/optimized/IMG_3426_optimized.jpg" alt="Galeri 5" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3428_optimized.jpg', 5)">
+                            <img src="images/optimized/IMG_3428_optimized.jpg" alt="Galeri 6" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3429_optimized.jpg', 6)">
+                            <img src="images/optimized/IMG_3429_optimized.jpg" alt="Galeri 7" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3432_optimized.jpg', 7)">
+                            <img src="images/optimized/IMG_3432_optimized.jpg" alt="Galeri 8" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3433_optimized.jpg', 8)">
+                            <img src="images/optimized/IMG_3433_optimized.jpg" alt="Galeri 9" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3434(1)_optimized.jpg', 9)">
+                            <img src="images/optimized/IMG_3434(1)_optimized.jpg" alt="Galeri 10" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3438_optimized.jpg', 10)">
+                            <img src="images/optimized/IMG_3438_optimized.jpg" alt="Galeri 11" loading="lazy">
+                        </div>
+                        <!-- Duplicate set for infinite scroll effect -->
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3415_optimized.jpg', 0)">
+                            <img src="images/optimized/IMG_3415_optimized.jpg" alt="Galeri 1" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3416_optimized.jpg', 1)">
+                            <img src="images/optimized/IMG_3416_optimized.jpg" alt="Galeri 2" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3420_optimized.jpg', 2)">
+                            <img src="images/optimized/IMG_3420_optimized.jpg" alt="Galeri 3" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3423_optimized.jpg', 3)">
+                            <img src="images/optimized/IMG_3423_optimized.jpg" alt="Galeri 4" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3426_optimized.jpg', 4)">
+                            <img src="images/optimized/IMG_3426_optimized.jpg" alt="Galeri 5" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3428_optimized.jpg', 5)">
+                            <img src="images/optimized/IMG_3428_optimized.jpg" alt="Galeri 6" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3429_optimized.jpg', 6)">
+                            <img src="images/optimized/IMG_3429_optimized.jpg" alt="Galeri 7" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3432_optimized.jpg', 7)">
+                            <img src="images/optimized/IMG_3432_optimized.jpg" alt="Galeri 8" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3433_optimized.jpg', 8)">
+                            <img src="images/optimized/IMG_3433_optimized.jpg" alt="Galeri 9" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3434(1)_optimized.jpg', 9)">
+                            <img src="images/optimized/IMG_3434(1)_optimized.jpg" alt="Galeri 10" loading="lazy">
+                        </div>
+                        <div class="gallery-thumbnail" onclick="changeMainImage('images/optimized/IMG_3438_optimized.jpg', 10)">
+                            <img src="images/optimized/IMG_3438_optimized.jpg" alt="Galeri 11" loading="lazy">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

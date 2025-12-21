@@ -398,3 +398,12 @@ window.addEventListener('scroll', function() {
         homeSection.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
     }
 });
+
+// Gallery carousel - change main image
+function changeMainImage(imageSrc, index) {
+    const mainImg = document.getElementById('main-gallery-img');
+    if (mainImg) {
+        mainImg.src = imageSrc;
+        mainImg.alt = `Galeri ${index + 1}`;
+    }
+}
