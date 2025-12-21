@@ -6,9 +6,12 @@ AOS.init({
 
 // Close loader when page loads
 window.addEventListener('load', function() {
-    setTimeout(function() {
-        document.getElementById('loader').style.display = 'none';
-    }, 3000);
+    const loader = document.getElementById('loader');
+    if (loader) {
+        setTimeout(function() {
+            loader.style.display = 'none';
+        }, 3000);
+    }
 });
 
 // Music toggle functionality
@@ -34,6 +37,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Countdown timer
 function updateCountdown() {
+    // Check if countdown elements exist
+    const dayElement = document.getElementById('day');
+    const hourElement = document.getElementById('hour');
+    const minuteElement = document.getElementById('minute');
+    const secondElement = document.getElementById('second');
+
+    // Only run if countdown elements exist
+    if (!dayElement || !hourElement || !minuteElement || !secondElement) {
+        return;
+    }
+
     // Set the wedding date (adjust this to actual wedding date)
     const weddingDate = new Date('January 11, 2026 08:00:00').getTime();
     const now = new Date().getTime();
@@ -45,20 +59,16 @@ function updateCountdown() {
         const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-        document.getElementById('day').textContent = days.toString().padStart(2, '0');
-        document.getElementById('hour').textContent = hours.toString().padStart(2, '0');
-        document.getElementById('minute').textContent = minutes.toString().padStart(2, '0');
-        document.getElementById('second').textContent = seconds.toString().padStart(2, '0');
+        dayElement.textContent = days.toString().padStart(2, '0');
+        hourElement.textContent = hours.toString().padStart(2, '0');
+        minuteElement.textContent = minutes.toString().padStart(2, '0');
+        secondElement.textContent = seconds.toString().padStart(2, '0');
     } else {
         // If wedding date has passed, show a different message
-        document.getElementById('day').textContent = '00';
-        document.getElementById('hour').textContent = '00';
-        document.getElementById('minute').textContent = '00';
-        document.getElementById('second').textContent = '00';
-        // Optionally, update the message to indicate the event has passed
-        if (timeRemaining < 0) {
-            // Update message or show a different UI
-        }
+        dayElement.textContent = '00';
+        hourElement.textContent = '00';
+        minuteElement.textContent = '00';
+        secondElement.textContent = '00';
     }
 }
 

@@ -553,17 +553,18 @@
     }, true);
 
     // Service worker registration for PWA features
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-            navigator.serviceWorker.register('/sw.js')
-                .then(function(registration) {
-                    console.log('SW registered: ', registration);
-                })
-                .catch(function(registrationError) {
-                    console.log('SW registration failed: ', registrationError);
-                });
-        });
-    }
+    // Disabled until sw.js is created
+    // if ('serviceWorker' in navigator) {
+    //     window.addEventListener('load', function() {
+    //         navigator.serviceWorker.register('/sw.js')
+    //             .then(function(registration) {
+    //                 console.log('SW registered: ', registration);
+    //             })
+    //             .catch(function(registrationError) {
+    //                 console.log('SW registration failed: ', registrationError);
+    //             });
+    //     });
+    // }
 
     // Dark mode toggle functionality
     const themeToggle = document.getElementById('theme-toggle');
