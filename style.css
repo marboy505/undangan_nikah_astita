@@ -36,7 +36,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #ffffff;
+    background: #f8f9fa;
     position: relative;
     padding: 4rem 2rem;
 }
@@ -58,10 +58,12 @@ body {
 }
 
 .couple-name h1:first-child {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    opacity: 0.7;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
     font-weight: 300;
+    letter-spacing: 3px;
+    text-transform: uppercase;
 }
 
 .guest-name {
@@ -664,7 +666,7 @@ p {
 /* Event Section - Clean Monochrome */
 .event-section {
     padding: 8rem 2rem;
-    background: #ffffff;
+    background: #f8f9fa;
     text-align: center;
 }
 
@@ -723,24 +725,24 @@ p {
 /* Couple Section - Clean Monochrome */
 .couple-section {
     padding: 8rem 2rem;
-    background: #ffffff;
+    background: #f8f9fa;
     text-align: center;
 }
 
 .couple-section h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 400;
     color: #000000;
-    margin-bottom: 2rem;
-    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
 }
 
-.couple-section p {
-    max-width: 600px;
-    margin: 0 auto 4rem;
-    font-size: 1.1rem;
-    line-height: 1.7;
+.couple-section > .container > p {
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    font-size: 1rem;
+    line-height: 1.8;
     color: #666666;
 }
 
@@ -864,7 +866,7 @@ p {
 /* Timeline Section - Love Story */
 .timeline-section {
     padding: 8rem 0;
-    background: #f8f9fa;
+    background: #ffffff;
 }
 
 .timeline-section h2 {
@@ -1108,7 +1110,35 @@ p {
 /* Gallery Section */
 .gallery-section {
     padding: 8rem 0;
-    background-color: var(--white);
+    background-color: #f8f9fa;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-item {
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 3/4;
+    background: #e5e5e5;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
 }
 
 .gallery-section h2 {
@@ -1690,7 +1720,7 @@ p {
 /* Wishes Section */
 .wishes-section {
     padding: 8rem 0;
-    background-color: #fff;
+    background-color: #f8f9fa;
 }
 
 .wishes-section h2 {
