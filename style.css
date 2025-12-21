@@ -1050,74 +1050,115 @@ p {
 .gallery-section {
     padding: 8rem 0;
     background:
-        linear-gradient(rgba(250, 249, 246, 0.9), rgba(250, 249, 246, 0.9)),
+        linear-gradient(rgba(254, 253, 248, 0.9), rgba(254, 253, 248, 0.9)),
         url('images/IMG_3429.JPG') center/cover fixed;
 }
 
-/* Mosaic Gallery Layout */
-.gallery-mosaic {
+/* Elegant Grid Gallery Layout */
+.elegant-gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 200px;
-    gap: 10px;
+    grid-auto-rows: 220px;
+    gap: 12px;
     margin-bottom: 3rem;
 }
 
-.gallery-item-large {
-    grid-column: span 2;
-    grid-row: span 2;
+.gallery-item {
+    position: relative;
     overflow: hidden;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(28, 18, 8, 0.1);
+    transition: all 0.3s ease;
     cursor: pointer;
-    position: relative;
 }
 
-.gallery-item-medium {
-    grid-column: span 1;
-    grid-row: span 2;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    position: relative;
-}
-
-.gallery-item-small {
-    grid-column: span 1;
-    grid-row: span 1;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    position: relative;
-}
-
-.gallery-item-large img,
-.gallery-item-medium img,
-.gallery-item-small img {
+.gallery-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top; /* Focus on the top/center of the image where faces are likely to be */
     display: block;
     transition: transform 0.5s ease;
 }
 
-.gallery-item-large:hover,
-.gallery-item-medium:hover,
-.gallery-item-small:hover {
-    transform: scale(1.03);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-    z-index: 10;
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(28, 18, 8, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
 }
 
-.gallery-item-large:hover img,
-.gallery-item-medium:hover img,
-.gallery-item-small:hover img {
+.gallery-overlay i {
+    color: white;
+    font-size: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-item:hover .gallery-overlay i {
+    transform: scale(1.2);
+}
+
+.gallery-item:hover img {
     transform: scale(1.1);
+}
+
+.gallery-item.square {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.gallery-item.landscape {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.gallery-item.portrait {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+/* Adjust grid for different screen sizes */
+@media (max-width: 768px) {
+    .elegant-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 180px;
+        gap: 10px;
+    }
+
+    .gallery-item.landscape {
+        grid-column: span 2;
+    }
+
+    .gallery-item.portrait {
+        grid-row: span 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .elegant-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 200px;
+        gap: 8px;
+    }
+
+    .gallery-item.landscape,
+    .gallery-item.portrait,
+    .gallery-item.square {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
 }
 
 .gallery-grid {
@@ -1193,6 +1234,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    object-position: center top; /* Focus on the top/center of the image where faces are likely to be */
     display: block;
 }
 
@@ -1241,6 +1283,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center top; /* Focus on the top/center of the image where faces are likely to be */
     display: block;
 }
 
@@ -1356,6 +1399,7 @@ p {
     max-width: 100%;
     max-height: 90vh;
     object-fit: contain;
+    object-position: center top; /* Focus on the top/center of the image where faces are likely to be */
     border-radius: 4px;
 }
 
