@@ -1046,118 +1046,91 @@ p {
     left: 100%;
 }
 
-/* Gallery Section */
+/* Gallery Section Styling */
 .gallery-section {
-    padding: 8rem 0;
-    background:
-        linear-gradient(rgba(254, 253, 248, 0.9), rgba(254, 253, 248, 0.9)),
-        url('images/IMG_3429.JPG') center/cover fixed;
-}
-
-/* Elegant Grid Gallery Layout */
-.elegant-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 220px;
-    gap: 12px;
-    margin-bottom: 3rem;
-}
-
-.gallery-item {
-    position: relative;
+    padding: 80px 0;
+    background-color: #fdfaf7; /* Warna krem lembut */
     overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(28, 18, 8, 0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
 }
 
-.gallery-item img {
+.gallery-section h2 {
+    text-align: center;
+    font-family: 'Playfair Display', serif; /* Pastikan import font ini di Google Fonts */
+    font-size: 2.5rem;
+    color: #8d6e63;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+/* Container untuk strip foto */
+.gallery-single-frame {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top; /* Focus on the top/center of the image where faces are likely to be */
-    display: block;
-    transition: transform 0.5s ease;
-}
-
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(28, 18, 8, 0.7);
+    position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    z-index: 2;
+    overflow: hidden;
+    padding: 20px 0;
 }
 
-.gallery-overlay i {
-    color: white;
-    font-size: 2rem;
-    transition: transform 0.3s ease;
+/* Animasi Running Strip */
+.gallery-strip {
+    display: flex;
+    gap: 20px;
+    animation: scroll 40s linear infinite;
+    width: max-content;
 }
 
-.gallery-item:hover .gallery-overlay {
-    opacity: 1;
+/* Berhenti scroll saat di-hover agar user mudah mengklik */
+.gallery-strip:hover {
+    animation-play-state: paused;
 }
 
-.gallery-item:hover .gallery-overlay i {
-    transform: scale(1.2);
+.gallery-photo {
+    width: 300px;
+    height: 400px;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 15px; /* Sudut melengkung halus */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transition: transform 0.5s ease, filter 0.5s ease;
+    cursor: pointer;
+    border: 8px solid white; /* Frame foto ala polaroid modern */
+    flex-shrink: 0;
 }
 
-.gallery-item:hover img {
-    transform: scale(1.1);
+.gallery-photo:hover {
+    transform: scale(1.05) translateY(-10px);
+    filter: brightness(90%);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
-.gallery-item.square {
-    grid-column: span 1;
-    grid-row: span 1;
+/* Keyframes untuk Infinite Scroll */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(calc(-50% - 10px)); /* Geser setengah panjang strip */
+    }
 }
 
-.gallery-item.landscape {
-    grid-column: span 2;
-    grid-row: span 1;
-}
-
-.gallery-item.portrait {
-    grid-column: span 1;
-    grid-row: span 2;
-}
-
-/* Adjust grid for different screen sizes */
+/* Responsive untuk HP */
 @media (max-width: 768px) {
-    .elegant-gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-auto-rows: 180px;
-        gap: 10px;
+    .gallery-photo {
+        width: 200px;
+        height: 300px;
     }
-
-    .gallery-item.landscape {
-        grid-column: span 2;
-    }
-
-    .gallery-item.portrait {
-        grid-row: span 1;
+    .gallery-section h2 {
+        font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .elegant-gallery-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 200px;
-        gap: 8px;
+    .gallery-photo {
+        width: 150px;
+        height: 225px;
     }
-
-    .gallery-item.landscape,
-    .gallery-item.portrait,
-    .gallery-item.square {
-        grid-column: span 1;
-        grid-row: span 1;
+    .gallery-section h2 {
+        font-size: 1.8rem;
     }
 }
 
