@@ -1046,89 +1046,137 @@ p {
     left: 100%;
 }
 
-/* Gallery Section Styling */
+:root {
+    --gallery-bg: #1a1a1a; /* Warna gelap agar foto lebih 'pop' */
+    --border-color: rgba(255, 255, 255, 0.8);
+}
+
 .gallery-section {
-    padding: 80px 0;
-    background-color: #fdfaf7; /* Warna krem lembut */
+    padding: 60px 0;
+    background-color: var(--gallery-bg);
+    color: white;
     overflow: hidden;
 }
 
 .gallery-section h2 {
     text-align: center;
-    font-family: 'Playfair Display', serif; /* Pastikan import font ini di Google Fonts */
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 40px;
     font-size: 2.5rem;
-    color: #8d6e63;
-    margin-bottom: 50px;
-    letter-spacing: 2px;
+    color: white;
 }
 
-/* Container untuk strip foto */
-.gallery-single-frame {
+/* --- STYLE GRID ATAS --- */
+.gallery-grid-top {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+    margin-bottom: 20px;
+}
+
+.grid-item img {
     width: 100%;
-    position: relative;
-    display: flex;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border: 2px solid var(--border-color);
+    transition: 0.3s;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.grid-item.tall {
+    grid-row: span 2;
+    height: 500px;
+}
+.grid-item.wide {
+    grid-column: span 2;
+    height: 240px;
+}
+.grid-item.standard {
+    height: 245px;
+}
+
+.grid-item img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+}
+
+/* --- STYLE AUTO-SCROLL BAWAH --- */
+.gallery-auto-scroll {
+    width: 100%;
     overflow: hidden;
     padding: 20px 0;
+    position: relative;
+    margin-top: 40px;
 }
 
-/* Animasi Running Strip */
 .gallery-strip {
     display: flex;
-    gap: 20px;
-    animation: scroll 40s linear infinite;
+    gap: 15px;
     width: max-content;
-}
-
-/* Berhenti scroll saat di-hover agar user mudah mengklik */
-.gallery-strip:hover {
-    animation-play-state: paused;
+    animation: scroll-left 30s linear infinite;
 }
 
 .gallery-photo {
-    width: 300px;
-    height: 400px;
+    width: 200px;
+    height: 150px;
     object-fit: cover;
     object-position: center top;
-    border-radius: 15px; /* Sudut melengkung halus */
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    transition: transform 0.5s ease, filter 0.5s ease;
+    border: 2px solid var(--border-color);
     cursor: pointer;
-    border: 8px solid white; /* Frame foto ala polaroid modern */
-    flex-shrink: 0;
+    transition: transform 0.3s;
+    border-radius: 4px;
 }
 
 .gallery-photo:hover {
-    transform: scale(1.05) translateY(-10px);
-    filter: brightness(90%);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transform: scale(1.05);
+    z-index: 2;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 }
 
-/* Keyframes untuk Infinite Scroll */
-@keyframes scroll {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(calc(-50% - 10px)); /* Geser setengah panjang strip */
-    }
+/* Animasi Berjalan */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } /* Bergeser setengah dari total lebar */
 }
 
-/* Responsive untuk HP */
+/* Responsive Mobile */
 @media (max-width: 768px) {
-    .gallery-photo {
-        width: 200px;
-        height: 300px;
+    .gallery-grid-top {
+        grid-template-columns: 1fr;
     }
+    .grid-item.tall, .grid-item.wide, .grid-item.standard {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: 250px;
+    }
+
+    .gallery-photo {
+        width: 150px;
+        height: 110px;
+    }
+
     .gallery-section h2 {
         font-size: 2rem;
     }
 }
 
 @media (max-width: 480px) {
-    .gallery-photo {
-        width: 150px;
-        height: 225px;
+    .gallery-grid-top {
+        grid-template-columns: 1fr;
     }
+    .grid-item.tall, .grid-item.wide, .grid-item.standard {
+        grid-column: span 1;
+        grid-row: span 1;
+        height: 200px;
+    }
+
+    .gallery-photo {
+        width: 120px;
+        height: 90px;
+    }
+
     .gallery-section h2 {
         font-size: 1.8rem;
     }
