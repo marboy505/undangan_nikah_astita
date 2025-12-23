@@ -8,11 +8,24 @@ AOS.init({
 window.addEventListener('load', function() {
     const loader = document.getElementById('loader');
     if (loader) {
+        // Fade out the loader after a minimum display time
         setTimeout(function() {
-            loader.style.display = 'none';
-        }, 3000);
+            loader.style.opacity = '0';
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 500); // Match the CSS transition time
+        }, 2000); // Minimum display time
     }
 });
+
+// Show loader if needed
+function showLoader() {
+    const loader = document.getElementById('loader');
+    if (loader) {
+        loader.style.display = 'flex';
+        loader.style.opacity = '1';
+    }
+}
 
 // Music toggle functionality
 document.addEventListener('DOMContentLoaded', function() {
@@ -93,36 +106,183 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// RSVP Form Submission
+// RSVP Form Submission with enhanced validation
 document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     e.preventDefault();
 
     // Get form values
-    const name = document.getElementById('name').value;
+    const name = document.getElementById('name').value.trim();
     const attendance = document.getElementById('attendance').value;
-    const confirmValue = document.querySelector('input[name="confirm"]:checked').value;
-    const message = document.getElementById('message').value;
+    const confirmValue = document.querySelector('input[name="confirm"]:checked');
+    const message = document.getElementById('message').value.trim();
+
+    // Reset previous errors
+    clearFormErrors('rsvp-form');
+
+    // Validate form
+    let isValid = true;
+
+    // Validate name
+    if (!name) {
+        showError('name', 'Nama lengkap harus diisi');
+        isValid = false;
+    } else if (name.length < 2) {
+        showError('name', 'Nama harus terdiri dari minimal 2 karakter');
+        isValid = false;
+    } else if (name.length > 100) {
+        showError('name', 'Nama terlalu panjang (maksimal 100 karakter)');
+        isValid = false;
+    }
+
+    // Validate attendance
+    if (!attendance) {
+        showError('attendance', 'Silakan pilih jumlah kehadiran');
+        isValid = false;
+    }
+
+    // Validate confirmation
+    if (!confirmValue) {
+        showError('confirm', 'Silakan pilih konfirmasi kehadiran');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
 
     // Create RSVP object
     const rsvpData = {
         name: name,
         attendance: attendance,
-        confirmation: confirmValue,
+        confirmation: confirmValue.value,
         message: message,
         timestamp: new Date()
     };
 
-    // In a real application, you would send this data to a server
-    // For this example, we'll store in localStorage
-    let rsvps = JSON.parse(localStorage.getItem('rsvps')) || [];
-    rsvps.push(rsvpData);
-    localStorage.setItem('rsvps', JSON.stringify(rsvps));
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
 
-    // Show confirmation message
-    alert(`Terima kasih ${name} atas konfirmasi kehadiran Anda!`);
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    submitBtn.disabled = true;
 
-    // Reset form
-    this.reset();
+    // Simulate network request
+    setTimeout(() => {
+        // In a real application, you would send this data to a server
+        // For this example, we'll store in localStorage
+        let rsvps = JSON.parse(localStorage.getItem('rsvps')) || [];
+        rsvps.push(rsvpData);
+        localStorage.setItem('rsvps', JSON.stringify(rsvps));
+
+        // Show confirmation message
+        alert(`Terima kasih ${name} atas konfirmasi kehadiran Anda!`);
+
+        // Reset form
+        this.reset();
+
+        // Reset character count
+        updateCharCount('message', 500);
+
+        // Reset button state
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
+    }, 1500);
+});
+
+// Wishes Form Submission with enhanced validation
+document.getElementById('wishes-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Get form values
+    const name = document.getElementById('wishes-name').value.trim();
+    const message = document.getElementById('wishes-message').value.trim();
+
+    // Reset previous errors
+    clearFormErrors('wishes-form');
+
+    // Validate form
+    let isValid = true;
+
+    // Validate name
+    if (!name) {
+        showError('wishes-name', 'Nama harus diisi');
+        isValid = false;
+    } else if (name.length < 2) {
+        showError('wishes-name', 'Nama harus terdiri dari minimal 2 karakter');
+        isValid = false;
+    } else if (name.length > 100) {
+        showError('wishes-name', 'Nama terlalu panjang (maksimal 100 karakter)');
+        isValid = false;
+    }
+
+    // Validate message
+    if (!message) {
+        showError('wishes-message', 'Ucapan & Doa harus diisi');
+        isValid = false;
+    } else if (message.length < 5) {
+        showError('wishes-message', 'Ucapan & Doa harus terdiri dari minimal 5 karakter');
+        isValid = false;
+    } else if (message.length > 500) {
+        showError('wishes-message', 'Ucapan & Doa terlalu panjang (maksimal 500 karakter)');
+        isValid = false;
+    }
+
+    if (!isValid) {
+        return;
+    }
+
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+
+    btnText.style.display = 'none';
+    btnLoading.style.display = 'inline';
+    submitBtn.disabled = true;
+
+    // Create wishes object
+    const wishData = {
+        name: name,
+        message: message,
+        date: new Date().toLocaleDateString('id-ID')
+    };
+
+    // Simulate network request
+    setTimeout(() => {
+        // Store in localStorage
+        let wishes = JSON.parse(localStorage.getItem('wishes')) || [];
+        wishes.push(wishData);
+        localStorage.setItem('wishes', JSON.stringify(wishes));
+
+        // Create new wishes element
+        const wishesContainer = document.getElementById('wishes-container');
+        const newWish = document.createElement('div');
+        newWish.className = 'wishes-item';
+        newWish.innerHTML = `
+            <p><strong>${name}</strong> - ${message}</p>
+            <small>${wishData.date}</small>
+        `;
+
+        // Add new wish to the top of the container
+        wishesContainer.insertBefore(newWish, wishesContainer.firstChild);
+
+        // Show success message
+        alert('Ucapan dan doa Anda telah terkirim. Terima kasih!');
+
+        // Reset form
+        this.reset();
+
+        // Reset character count
+        updateCharCount('wishes-message', 500);
+
+        // Reset button state
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+        submitBtn.disabled = false;
+    }, 1500);
 });
 
 // Function to retrieve RSVPs (for admin purposes)
@@ -130,40 +290,120 @@ function getAllRsvps() {
     return JSON.parse(localStorage.getItem('rsvps')) || [];
 }
 
-// Wishes Form Submission
-document.getElementById('wishes-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+// Helper function to show error message
+function showError(fieldId, message) {
+    const field = document.getElementById(fieldId);
+    const errorDiv = document.getElementById(fieldId + '-error');
 
-    const name = document.getElementById('wishes-name').value;
-    const message = document.getElementById('wishes-message').value;
-    const date = new Date().toLocaleDateString('id-ID');
+    if (field && errorDiv) {
+        const formGroup = field.closest('.form-group');
+        formGroup.classList.add('error');
+        errorDiv.textContent = message;
+        errorDiv.style.display = 'block';
+    }
+}
 
-    // Create wishes object
-    const wishData = {
-        name: name,
-        message: message,
-        date: date
-    };
+// Helper function to clear form errors
+function clearFormErrors(formId) {
+    const form = document.getElementById(formId);
+    const errorElements = form.querySelectorAll('.error-message');
+    const formGroups = form.querySelectorAll('.form-group');
 
-    // Store in localStorage
-    let wishes = JSON.parse(localStorage.getItem('wishes')) || [];
-    wishes.push(wishData);
-    localStorage.setItem('wishes', JSON.stringify(wishes));
+    errorElements.forEach(error => {
+        error.style.display = 'none';
+    });
 
-    // Create new wishes element
-    const wishesContainer = document.getElementById('wishes-container');
-    const newWish = document.createElement('div');
-    newWish.className = 'wishes-item';
-    newWish.innerHTML = `
-        <p><strong>${name}</strong> - ${message}</p>
-        <small>${date}</small>
-    `;
+    formGroups.forEach(group => {
+        group.classList.remove('error');
+    });
+}
 
-    // Add new wish to the top of the container
-    wishesContainer.insertBefore(newWish, wishesContainer.firstChild);
+// Helper function to update character count
+function updateCharCount(fieldId, maxLength) {
+    const field = document.getElementById(fieldId);
+    const countElement = field.parentNode.querySelector('.char-count');
 
-    // Reset form
-    this.reset();
+    if (field && countElement) {
+        const currentLength = field.value.length;
+        countElement.textContent = `${currentLength}/${maxLength}`;
+    }
+}
+
+// Add event listeners for real-time validation and character counting
+document.addEventListener('DOMContentLoaded', function() {
+    // RSVP form validation
+    const rsvpName = document.getElementById('name');
+    const rsvpAttendance = document.getElementById('attendance');
+    const rsvpConfirm = document.querySelectorAll('input[name="confirm"]');
+    const rsvpMessage = document.getElementById('message');
+
+    if (rsvpName) {
+        rsvpName.addEventListener('input', function() {
+            if (this.value.trim().length >= 2 && this.value.trim().length <= 100) {
+                this.closest('.form-group').classList.remove('error');
+                this.closest('.form-group').classList.add('success');
+                document.getElementById('name-error').style.display = 'none';
+            } else {
+                this.closest('.form-group').classList.remove('success');
+            }
+        });
+    }
+
+    if (rsvpAttendance) {
+        rsvpAttendance.addEventListener('change', function() {
+            if (this.value) {
+                this.closest('.form-group').classList.remove('error');
+                this.closest('.form-group').classList.add('success');
+                document.getElementById('attendance-error').style.display = 'none';
+            } else {
+                this.closest('.form-group').classList.remove('success');
+            }
+        });
+    }
+
+    if (rsvpConfirm) {
+        rsvpConfirm.forEach(radio => {
+            radio.addEventListener('change', function() {
+                document.getElementById('confirm-error').style.display = 'none';
+                document.querySelector('input[name="confirm"]:checked').closest('.form-group').classList.remove('error');
+            });
+        });
+    }
+
+    if (rsvpMessage) {
+        rsvpMessage.addEventListener('input', function() {
+            updateCharCount('message', 500);
+        });
+    }
+
+    // Wishes form validation
+    const wishesName = document.getElementById('wishes-name');
+    const wishesMessage = document.getElementById('wishes-message');
+
+    if (wishesName) {
+        wishesName.addEventListener('input', function() {
+            if (this.value.trim().length >= 2 && this.value.trim().length <= 100) {
+                this.closest('.form-group').classList.remove('error');
+                this.closest('.form-group').classList.add('success');
+                document.getElementById('wishes-name-error').style.display = 'none';
+            } else {
+                this.closest('.form-group').classList.remove('success');
+            }
+        });
+    }
+
+    if (wishesMessage) {
+        wishesMessage.addEventListener('input', function() {
+            updateCharCount('wishes-message', 500);
+            if (this.value.trim().length >= 5 && this.value.trim().length <= 500) {
+                this.closest('.form-group').classList.remove('error');
+                this.closest('.form-group').classList.add('success');
+                document.getElementById('wishes-message-error').style.display = 'none';
+            } else {
+                this.closest('.form-group').classList.remove('success');
+            }
+        });
+    }
 });
 
 // Function to load existing wishes on page load
@@ -193,91 +433,38 @@ document.addEventListener('DOMContentLoaded', loadWishes);
 // Gallery lightbox functionality with navigation
 let currentLightboxIndex = 0;
 const galleryImages = [
-    'images/optimized/IMG_3415_optimized.jpg',
-    'images/optimized/IMG_3416_optimized.jpg',
-    'images/optimized/IMG_3420_optimized.jpg',
-    'images/optimized/IMG_3423_optimized.jpg',
-    'images/optimized/IMG_3426_optimized.jpg',
-    'images/optimized/IMG_3428_optimized.jpg',
-    'images/optimized/IMG_3429_optimized.jpg',
-    'images/optimized/IMG_3432_optimized.jpg',
-    'images/optimized/IMG_3433_optimized.jpg',
-    'images/optimized/IMG_3434(1)_optimized.jpg',
-    'images/optimized/IMG_3438_optimized.jpg'
+    'images/IMG_3415.JPG',
+    'images/IMG_3416.JPG',
+    'images/IMG_3420.JPG',
+    'images/IMG_3423.JPG',
+    'images/IMG_3426.JPG',
+    'images/IMG_3428.JPG',
+    'images/IMG_3429.JPG',
+    'images/IMG_3432.JPG',
+    'images/IMG_3433.JPG',
+    'images/IMG_3434(1).JPG',
+    'images/IMG_3438.JPG'
 ];
 
 function openLightbox(imgSrc, altText, index) {
     currentLightboxIndex = index;
 
-    // Create overlay
-    const overlay = document.createElement('div');
-    overlay.className = 'lightbox-overlay';
-    overlay.id = 'lightbox';
+    // Update the lightbox elements
+    const overlay = document.getElementById('lightbox-overlay');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const currentIndex = document.getElementById('current-index');
+    const totalImages = document.getElementById('total-images');
 
-    // Create content container
-    const content = document.createElement('div');
-    content.className = 'lightbox-content';
-
-    // Create close button
-    const closeBtn = document.createElement('span');
-    closeBtn.className = 'lightbox-close';
-    closeBtn.innerHTML = '&times;';
-    closeBtn.onclick = closeLightbox;
-
-    // Create image
-    const lightboxImg = document.createElement('img');
+    // Set image source and alt
     lightboxImg.src = imgSrc;
     lightboxImg.alt = altText;
-    lightboxImg.id = 'lightbox-img';
 
-    // Create navigation buttons
-    const prevBtn = document.createElement('button');
-    prevBtn.className = 'lightbox-nav lightbox-prev';
-    prevBtn.innerHTML = '&#10094;';
-    prevBtn.onclick = (e) => {
-        e.stopPropagation();
-        navigateLightbox(-1);
-    };
+    // Update counter
+    currentIndex.textContent = index + 1;
+    totalImages.textContent = galleryImages.length;
 
-    const nextBtn = document.createElement('button');
-    nextBtn.className = 'lightbox-nav lightbox-next';
-    nextBtn.innerHTML = '&#10095;';
-    nextBtn.onclick = (e) => {
-        e.stopPropagation();
-        navigateLightbox(1);
-    };
-
-    // Create image counter
-    const counter = document.createElement('div');
-    counter.className = 'lightbox-counter';
-    counter.innerHTML = `${index + 1} / ${galleryImages.length}`;
-    counter.style.position = 'absolute';
-    counter.style.top = '20px';
-    counter.style.left = '30px';
-    counter.style.color = 'white';
-    counter.style.fontSize = '1.2rem';
-    counter.style.zIndex = '10000';
-    counter.style.background = 'rgba(0, 0, 0, 0.5)';
-    counter.style.padding = '5px 10px';
-    counter.style.borderRadius = '4px';
-
-    // Assemble lightbox
-    overlay.appendChild(closeBtn);
-    overlay.appendChild(prevBtn);
-    overlay.appendChild(nextBtn);
-    overlay.appendChild(counter);
-    content.appendChild(lightboxImg);
-    overlay.appendChild(content);
-
-    // Add click event to close lightbox when clicking outside image
-    overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) {
-            closeLightbox();
-        }
-    });
-
-    // Add overlay to body
-    document.body.appendChild(overlay);
+    // Show the lightbox
+    overlay.style.display = 'flex';
 
     // Prevent scrolling when lightbox is open
     document.body.style.overflow = 'hidden';
@@ -287,9 +474,9 @@ function openLightbox(imgSrc, altText, index) {
 }
 
 function closeLightbox() {
-    const lightbox = document.getElementById('lightbox');
-    if (lightbox) {
-        document.body.removeChild(lightbox);
+    const overlay = document.getElementById('lightbox-overlay');
+    if (overlay) {
+        overlay.style.display = 'none';
         document.body.style.overflow = 'auto';
         document.removeEventListener('keydown', handleKeyboard);
     }
@@ -305,13 +492,14 @@ function navigateLightbox(direction) {
     }
 
     const lightboxImg = document.getElementById('lightbox-img');
-    const counter = document.querySelector('.lightbox-counter');
+    const currentIndex = document.getElementById('current-index');
+
     if (lightboxImg) {
         lightboxImg.src = galleryImages[currentLightboxIndex];
         lightboxImg.alt = `Galeri ${currentLightboxIndex + 1}`;
     }
-    if (counter) {
-        counter.innerHTML = `${currentLightboxIndex + 1} / ${galleryImages.length}`;
+    if (currentIndex) {
+        currentIndex.textContent = currentLightboxIndex + 1;
     }
 }
 
@@ -324,6 +512,13 @@ function handleKeyboard(e) {
         navigateLightbox(1);
     }
 }
+
+// Close lightbox when clicking on the overlay (but not on the image)
+document.getElementById('lightbox-overlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeLightbox();
+    }
+});
 
 // Copy to clipboard functionality
 function copyToClipboard(elementId) {
@@ -362,14 +557,24 @@ Telepon: +62 812-3456-7890`;
     alert('Alamat berhasil disalin!');
 }
 
-// Add scroll to top functionality
-window.addEventListener('scroll', function() {
+// Add scroll to top functionality with optimized event handling
+let scrollButtonTicking = false;
+
+function updateScrollTopButton() {
     const scrollTopButton = document.getElementById('scroll-top');
 
     if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
         scrollTopButton.classList.add('show');
     } else {
         scrollTopButton.classList.remove('show');
+    }
+    scrollButtonTicking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!scrollButtonTicking) {
+        requestAnimationFrame(updateScrollTopButton);
+        scrollButtonTicking = true;
     }
 });
 
@@ -388,7 +593,9 @@ function showLocation() {
     window.open('https://maps.app.goo.gl/prdaRWKFNxdDBQSi7', '_blank');
 }
 
-// Animation on scroll enhancement
+// Animation on scroll enhancement with optimized event handling
+let animationTicking = false;
+
 function animateOnScroll() {
     const elements = document.querySelectorAll('.event-card, .couple-card, .gallery-item');
 
@@ -403,6 +610,11 @@ function animateOnScroll() {
     });
 }
 
+function updateAnimations() {
+    animateOnScroll();
+    animationTicking = false;
+}
+
 // Set initial state for animation elements
 document.querySelectorAll('.event-card, .couple-card, .gallery-item').forEach(element => {
     element.style.opacity = '0';
@@ -410,18 +622,33 @@ document.querySelectorAll('.event-card, .couple-card, .gallery-item').forEach(el
     element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
 });
 
-// Listen for scroll event
-window.addEventListener('scroll', animateOnScroll);
+// Listen for scroll event with optimized handling
+window.addEventListener('scroll', function() {
+    if (!animationTicking) {
+        requestAnimationFrame(updateAnimations);
+        animationTicking = true;
+    }
+});
 // Initial check
 animateOnScroll();
 
-// Add parallax effect to home section background
-window.addEventListener('scroll', function() {
+// Add parallax effect to home section background with optimized event handling
+let parallaxTicking = false;
+
+function updateParallax() {
     const homeSection = document.querySelector('.home-section');
     const scrollPosition = window.pageYOffset;
 
     if (homeSection) {
         homeSection.style.backgroundPosition = `center ${scrollPosition * 0.5}px`;
+    }
+    parallaxTicking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!parallaxTicking) {
+        requestAnimationFrame(updateParallax);
+        parallaxTicking = true;
     }
 });
 
@@ -510,8 +737,55 @@ document.querySelectorAll('.gallery-item img').forEach((img, index) => {
     });
 });
 
-// Header scroll effect
-window.addEventListener('scroll', function() {
+// Mobile menu toggle functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    if (menuToggle && navbar) {
+        menuToggle.addEventListener('click', function() {
+            const isActive = menuToggle.classList.contains('active');
+            menuToggle.classList.toggle('active');
+            navbar.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', !isActive);
+        });
+
+        // Initialize aria-expanded attribute
+        menuToggle.setAttribute('aria-expanded', 'false');
+
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('.navbar a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navbar.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!navbar.contains(event.target) && !menuToggle.contains(event.target)) {
+                menuToggle.classList.remove('active');
+                navbar.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Handle keyboard navigation for mobile menu
+        menuToggle.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                menuToggle.click();
+            }
+        });
+    }
+});
+
+// Header scroll effect with optimized event handling
+let headerTicking = false;
+
+function updateHeader() {
     const header = document.querySelector('.header');
     if (window.scrollY > 100) {
         header.style.opacity = '1';
@@ -519,5 +793,13 @@ window.addEventListener('scroll', function() {
     } else {
         header.style.opacity = '0';
         header.style.visibility = 'hidden';
+    }
+    headerTicking = false;
+}
+
+window.addEventListener('scroll', function() {
+    if (!headerTicking) {
+        requestAnimationFrame(updateHeader);
+        headerTicking = true;
     }
 });

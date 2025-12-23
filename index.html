@@ -14,6 +14,10 @@
     <meta name="twitter:card" content="summary_large_image">
     <title>Undangan Pernikahan Muhammad Irfan & Astita Suntiasih</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+    <link rel="preload" as="image" href="images/IMG_3420.JPG">
+    <link rel="preload" as="image" href="images/IMG_3415.JPG">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#D4AF37">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -21,7 +25,7 @@
 </head>
 <body>
     <!-- Loader -->
-    <!-- <div id="loader" class="loader">
+    <div id="loader" class="loader">
         <div class="loader-content">
             <div class="loader-animation">
                 <i class="fas fa-ring"></i>
@@ -29,7 +33,7 @@
             <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
             <p>Teriring doa dan pengharapan, kami mengundang Bapak/Ibu/Saudara/i</p>
         </div>
-    </div> -->
+    </div>
 
     <!-- Music Player -->
     <audio id="bg-music" loop>
@@ -41,42 +45,47 @@
         </div> -->
 
     <!-- Header -->
-    <!-- <header class="header">
-        <div class="music-toggle">
-            <i class="fas fa-music" id="music-icon"></i>
+    <header class="header" role="banner">
+        <div class="music-toggle" role="button" tabindex="0" aria-label="Toggle music">
+            <i class="fas fa-music" id="music-icon" aria-hidden="true"></i>
         </div>
-        <nav class="navbar">
+        <div class="menu-toggle" id="menu-toggle" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </div>
+        <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
             <ul>
-                <li><a href="#home">Beranda</a></li>
-                <li><a href="#couple">Pasangan</a></li>
-                <li><a href="#timeline">Love Story</a></li>
-                <li><a href="#event">Acara</a></li>
-                <li><a href="#gallery">Galeri</a></li>
-                <li><a href="#gift">Love Gift</a></li>
-                <li><a href="#wishes">Ucapan</a></li>
+                <li><a href="#home" aria-label="Go to home section">Beranda</a></li>
+                <li><a href="#couple" aria-label="Go to couple section">Pasangan</a></li>
+                <li><a href="#timeline" aria-label="Go to love story section">Love Story</a></li>
+                <li><a href="#event" aria-label="Go to event details section">Acara</a></li>
+                <li><a href="#gallery" aria-label="Go to gallery section">Galeri</a></li>
+                <li><a href="#gift" aria-label="Go to gift section">Love Gift</a></li>
+                <li><a href="#wishes" aria-label="Go to wishes section">Ucapan</a></li>
             </ul>
         </nav>
-    </header> -->
+    </header>
 
     <!-- Home Section -->
-    <section id="home" class="home-section">
+    <section id="home" class="home-section" role="banner" aria-label="Home">
         <!-- Top Section: Title and Date -->
-        <div class="couple-name-top" data-aos="fade-down">
+        <div class="couple-name-top" data-aos="fade-down" aria-hidden="true">
             <h1 style="font-size: 1rem; margin-bottom: 0.5rem; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9); color: #000;">The Wedding of</h1>
             <h1 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 700; color: #000000; margin-bottom: 1rem; letter-spacing: 1px; line-height: 1.4; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9);">Muhammad Irfan & Astita Suntiasih</h1>
             <h3 style="font-size: 1.3rem; color: #000000; font-weight: 700; margin: 0.5rem 0; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9);">11 Januari 2026</h3>
         </div>
 
         <!-- Bottom Section: Guest Name and Button -->
-        <div class="couple-name-bottom" data-aos="fade-up" style="margin-top: 4rem;">
-            <p style="font-size: 1.1rem; color: #000000; margin-bottom: 0.5rem; font-weight: 600; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);">Kepada YTH:</p>
-            <div class="guest-name">
+        <div class="couple-name-bottom" data-aos="fade-up" style="margin-top: 4rem;" aria-labelledby="guest-title">
+            <p id="guest-title" style="font-size: 1.1rem; color: #000000; margin-bottom: 0.5rem; font-weight: 600; text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9);">Kepada YTH:</p>
+            <div class="guest-name" aria-label="Guest name">
                 <p id="write" style="font-weight: 700; font-size: 1.5rem; color: #000; text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), -1px -1px 2px rgba(255, 255, 255, 0.9), 1px -1px 2px rgba(255, 255, 255, 0.9), -1px 1px 2px rgba(255, 255, 255, 0.9); margin-bottom: 1.5rem;"></p>
             </div>
             <div class="open-button">
-                <a href="#invitation" class="btn-open" id="open-btn">
+                <a href="#invitation" class="btn-open" id="open-btn" role="button" aria-label="Open wedding invitation">
                     <span class="btn-text">Buka Undangan</span>
-                    <div class="btn-loader" style="display: none;">
+                    <div class="btn-loader" style="display: none;" aria-hidden="true">
                         <div class="loader-dots">
                             <span></span>
                             <span></span>
@@ -140,35 +149,34 @@
     </section> -->
 
     <!-- Couple Section -->
-    <section id="couple" class="couple-section">
+    <section id="couple" class="couple-section" role="region" aria-labelledby="couple-title">
         <div class="container">
-            <!-- <h2 data-aos="fade-up">Assalamu'alaikum Warahmatullahi Wabarakatuh</h2> -->
-
+            <h2 id="couple-title" data-aos="fade-up" class="sr-only">About the Couple</h2>
             <!-- <p data-aos="fade-up" data-aos-delay="200">Tanpa mengurangi rasa hormat, bersama ini kami bermaksud mengundang Bapak/Ibu/Saudara/i
                 untuk hadir dalam acara pernikahan putra-putri kami.</p> -->
 
-            <div class="couple-grid">
-                <div class="couple-card" data-aos="fade-right">
-                    <img src="images/IMG_3434(1).JPG" alt="Astita Suntiasih" class="couple-photo">
-                    <h3>Astita Suntiasih</h3>
+            <div class="couple-grid" role="group" aria-label="Couple information">
+                <div class="couple-card" data-aos="fade-right" role="article" aria-labelledby="bride-name">
+                    <img src="images/IMG_3434(1).JPG" alt="Astita Suntiasih" class="couple-photo" loading="lazy">
+                    <h3 id="bride-name">Astita Suntiasih</h3>
                     <p class="nickname">Tita</p>
                     <p>Putri dari Bapak Parta., S.Pd & Ibu Sunarsih</p>
-                    <div class="social-icons">
-                        <a href="https://instagram.com/astitasuntiasihh" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="https://instagram.com/astitasuntiasihh" target="_blank" rel="noopener noreferrer" aria-label="Astita's Instagram profile"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
-                <div class="divider-couple" data-aos="zoom-in" data-aos-delay="500">
-                    <i class="fas fa-ring"></i>
+                <div class="divider-couple" data-aos="zoom-in" data-aos-delay="500" aria-hidden="true">
+                    <i class="fas fa-ring" aria-hidden="true"></i>
                 </div>
 
-                <div class="couple-card" data-aos="fade-left">
-                    <img src="images/IMG_3438.JPG" alt="Muhammad Irfan" class="couple-photo">
-                    <h3>Muhammad Irfan</h3>
+                <div class="couple-card" data-aos="fade-left" role="article" aria-labelledby="groom-name">
+                    <img src="images/IMG_3438.JPG" alt="Muhammad Irfan" class="couple-photo" loading="lazy">
+                    <h3 id="groom-name">Muhammad Irfan</h3>
                     <p class="nickname">Irfan</p>
                     <p>Putra dari Bapak Muh. Idris & (Alm) Ibu Mustiati</p>
-                    <div class="social-icons">
-                        <a href="https://instagram.com/muhammadirfanidris" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <div class="social-icons" aria-label="Social media links">
+                        <a href="https://instagram.com/muhammadirfanidris" target="_blank" rel="noopener noreferrer" aria-label="Muhammad's Instagram profile"><i class="fab fa-instagram" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -300,39 +308,52 @@
 
             <div class="gallery-grid-top" data-aos="fade-up">
                 <div class="grid-item tall">
-                    <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox('images/IMG_3415.JPG', 'Galeri 1', 0)">
+                    <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox('images/IMG_3415.JPG', 'Galeri 1', 0)" loading="lazy">
                 </div>
                 <div class="grid-item wide">
-                    <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox('images/IMG_3416.JPG', 'Galeri 2', 1)">
+                    <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox('images/IMG_3416.JPG', 'Galeri 2', 1)" loading="lazy">
                 </div>
                 <div class="grid-item standard">
-                    <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox('images/IMG_3420.JPG', 'Galeri 3', 2)">
+                    <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox('images/IMG_3420.JPG', 'Galeri 3', 2)" loading="lazy">
                 </div>
             </div>
 
             <div class="gallery-auto-scroll" data-aos="fade-up">
                 <div class="gallery-strip">
-                    <img src="images/IMG_3423.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)">
-                    <img src="images/IMG_3426.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)">
-                    <img src="images/IMG_3428.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)">
-                    <img src="images/IMG_3429.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)">
-                    <img src="images/IMG_3432.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)">
-                    <img src="images/IMG_3433.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)">
-                    <img src="images/IMG_3434(1).JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)">
-                    <img src="images/IMG_3438.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)">
+                    <img src="images/IMG_3423.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)" loading="lazy">
+                    <img src="images/IMG_3426.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)" loading="lazy">
+                    <img src="images/IMG_3428.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)" loading="lazy">
+                    <img src="images/IMG_3429.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)" loading="lazy">
+                    <img src="images/IMG_3432.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)" loading="lazy">
+                    <img src="images/IMG_3433.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)" loading="lazy">
+                    <img src="images/IMG_3434(1).JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)" loading="lazy">
+                    <img src="images/IMG_3438.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)" loading="lazy">
                     <!-- Duplicate images for continuous scrolling effect -->
-                    <img src="images/IMG_3423.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)">
-                    <img src="images/IMG_3426.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)">
-                    <img src="images/IMG_3428.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)">
-                    <img src="images/IMG_3429.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)">
-                    <img src="images/IMG_3432.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)">
-                    <img src="images/IMG_3433.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)">
-                    <img src="images/IMG_3434(1).JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)">
-                    <img src="images/IMG_3438.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)">
+                    <img src="images/IMG_3423.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)" loading="lazy">
+                    <img src="images/IMG_3426.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)" loading="lazy">
+                    <img src="images/IMG_3428.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)" loading="lazy">
+                    <img src="images/IMG_3429.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)" loading="lazy">
+                    <img src="images/IMG_3432.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)" loading="lazy">
+                    <img src="images/IMG_3433.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)" loading="lazy">
+                    <img src="images/IMG_3434(1).JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)" loading="lazy">
+                    <img src="images/IMG_3438.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Enhanced Gallery Lightbox -->
+    <div id="lightbox-overlay" class="lightbox-overlay" style="display: none;">
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+            <div class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#10094;</div>
+            <div class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#10095;</div>
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <div class="lightbox-counter">
+                <span id="current-index">1</span> / <span id="total-images">11</span>
+            </div>
+        </div>
+    </div>
 
     <!-- Love Gift Section -->
     <section id="gift" class="gift-section">
@@ -399,33 +420,42 @@
                 </div>
                 <form id="rsvp-form" class="rsvp-form" data-aos="fade-left">
                     <div class="form-group">
-                        <input type="text" id="name" placeholder="Nama Lengkap" required>
+                        <label for="name">Nama Lengkap *</label>
+                        <input type="text" id="name" name="name" placeholder="Nama Lengkap" required aria-required="true" minlength="2" maxlength="100">
+                        <div class="error-message" id="name-error" role="alert" aria-live="polite"></div>
                     </div>
 
                     <div class="form-group">
-                        <label>Jumlah Kehadiran:</label>
-                        <select id="attendance" required>
+                        <label for="attendance">Jumlah Kehadiran *</label>
+                        <select id="attendance" name="attendance" required aria-required="true">
                             <option value="">Pilih Jumlah</option>
                             <option value="1">1 Orang</option>
                             <option value="2">2 Orang</option>
                             <option value="3">3 Orang</option>
                             <option value="4">4 Orang</option>
                         </select>
+                        <div class="error-message" id="attendance-error" role="alert" aria-live="polite"></div>
                     </div>
 
                     <div class="form-group">
-                        <label>Konfirmasi Kehadiran:</label>
+                        <label>Konfirmasi Kehadiran *</label>
                         <div class="radio-group">
-                            <label><input type="radio" name="confirm" value="hadir" required> Hadir</label>
-                            <label><input type="radio" name="confirm" value="tidak"> Tidak Hadir</label>
+                            <label><input type="radio" id="confirm-hadir" name="confirm" value="hadir" required aria-required="true"> Hadir</label>
+                            <label><input type="radio" id="confirm-tidak" name="confirm" value="tidak"> Tidak Hadir</label>
                         </div>
+                        <div class="error-message" id="confirm-error" role="alert" aria-live="polite"></div>
                     </div>
 
                     <div class="form-group">
-                        <textarea id="message" placeholder="Ucapan / Doa"></textarea>
+                        <label for="message">Ucapan / Doa</label>
+                        <textarea id="message" name="message" placeholder="Ucapan / Doa" maxlength="500"></textarea>
+                        <div class="char-count">0/500</div>
                     </div>
 
-                    <button type="submit">Kirim Konfirmasi</button>
+                    <button type="submit" aria-label="Submit RSVP confirmation">
+                        <span class="btn-text">Kirim Konfirmasi</span>
+                        <span class="btn-loading" style="display: none;">Mengirim...</span>
+                    </button>
                 </form>
             </div>
         </div>
@@ -441,14 +471,22 @@
 
             <form id="wishes-form" data-aos="fade-up">
                 <div class="form-group">
-                    <input type="text" id="wishes-name" placeholder="Nama" required>
+                    <label for="wishes-name">Nama *</label>
+                    <input type="text" id="wishes-name" name="wishes-name" placeholder="Nama" required aria-required="true" minlength="2" maxlength="100">
+                    <div class="error-message" id="wishes-name-error" role="alert" aria-live="polite"></div>
                 </div>
 
                 <div class="form-group">
-                    <textarea id="wishes-message" placeholder="Ucapan & Doa" required></textarea>
+                    <label for="wishes-message">Ucapan & Doa *</label>
+                    <textarea id="wishes-message" name="wishes-message" placeholder="Ucapan & Doa" required aria-required="true" minlength="5" maxlength="500"></textarea>
+                    <div class="char-count">0/500</div>
+                    <div class="error-message" id="wishes-message-error" role="alert" aria-live="polite"></div>
                 </div>
 
-                <button type="submit">Kirim Ucapan</button>
+                <button type="submit" aria-label="Send wishes">
+                    <span class="btn-text">Kirim Ucapan</span>
+                    <span class="btn-loading" style="display: none;">Mengirim...</span>
+                </button>
             </form>
         </div>
     </section>
@@ -522,7 +560,9 @@
         }, 800);
     });
 
-    // Reveal animation on scroll
+    // Optimized reveal animation on scroll with requestAnimationFrame
+    let ticking = false;
+
     function reveal() {
       var reveals = document.querySelectorAll(".reveal");
 
@@ -539,7 +579,20 @@
       }
     }
 
-    window.addEventListener("scroll", reveal);
+    function updateScroll() {
+      reveal();
+      ticking = false;
+    }
+
+    window.addEventListener("scroll", function() {
+      if (!ticking) {
+        requestAnimationFrame(updateScroll);
+        ticking = true;
+      }
+    });
+
+    // Initial reveal check
+    document.addEventListener('DOMContentLoaded', reveal);
 
     // Lazy loading for images
     function lazyLoadImages() {
@@ -571,18 +624,17 @@
     }, true);
 
     // Service worker registration for PWA features
-    // Disabled until sw.js is created
-    // if ('serviceWorker' in navigator) {
-    //     window.addEventListener('load', function() {
-    //         navigator.serviceWorker.register('/sw.js')
-    //             .then(function(registration) {
-    //                 console.log('SW registered: ', registration);
-    //             })
-    //             .catch(function(registrationError) {
-    //                 console.log('SW registration failed: ', registrationError);
-    //             });
-    //     });
-    // }
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('./sw.js')
+                .then(function(registration) {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(function(registrationError) {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
 
 
     // Share functionality
