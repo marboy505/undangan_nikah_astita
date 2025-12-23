@@ -487,7 +487,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="main-footer">
         <div class="container">
             <p>© 2026 Muhammad Irfan & Astita Suntiasih. Dengan penuh cinta.</p>
             <div class="social-links">
@@ -507,21 +507,60 @@
     <script src="script.js"></script>
 
     <script>
-    // Guest name functionality
-    const params = new URLSearchParams(document.location.search);
-    let to = params.get("to");
-    if(to){
-        document.getElementById("write").innerHTML = ""+to;
-        document.getElementById("write").style.textAlign="center"
+    // Guest name functionality - gets name from URL query parameter or hash
+    function getGuestName() {
+        // First, try to get from query parameter (e.g., ?to=Name)
+        const params = new URLSearchParams(window.location.search);
+        let to = params.get("to");
+
+        if (to) {
+            return to;
+        }
+
+        // If not in query, try to get from hash (e.g., #Name)
+        const hash = window.location.hash.substring(1);
+        if (hash && !hash.includes('=')) {
+            // If hash doesn't contain parameters, treat it as a name
+            return hash;
+        }
+
+        // If not found, return null
+        return null;
     }
 
-    // Initially hide all sections except home
+    // Get and set the guest name
+    let to = getGuestName();
+    if(to) {
+        document.getElementById("write").innerHTML = ""+to;
+        document.getElementById("write").style.textAlign="center";
+    } else {
+        // Try to get name from URL path as last resort
+        const pathParts = window.location.pathname.split('/');
+        const lastPart = pathParts[pathParts.length - 1];
+
+        if (lastPart && lastPart !== '' && !lastPart.includes('.')) {
+            // If the last part of the path is not empty and doesn't look like a file extension
+            document.getElementById("write").innerHTML = decodeURIComponent(lastPart);
+            document.getElementById("write").style.textAlign="center";
+        } else {
+            // Default text when no name is provided
+            document.getElementById("write").innerHTML = "Tamu Undangan";
+        }
+    }
+
+    // Initially hide all sections except home and hide footer
     document.addEventListener('DOMContentLoaded', function() {
         // Hide all sections except the home section
         const allSections = document.querySelectorAll('section:not(#home)');
         allSections.forEach(section => {
             section.style.display = 'none';
         });
+
+        // Initially hide the footer
+        const footer = document.getElementById('main-footer');
+        if(footer) {
+            footer.style.display = 'none';
+        }
     });
 
     // Handle "Buka Undangan" button click
@@ -547,6 +586,12 @@
             allSections.forEach(section => {
                 section.style.display = 'block';
             });
+
+            // Show the footer after clicking the button
+            const footer = document.getElementById('main-footer');
+            if(footer) {
+                footer.style.display = 'block';
+            }
 
             // Start background music
             const bgMusic = document.getElementById('bg-music');

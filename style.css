@@ -1164,17 +1164,107 @@ p {
 .gallery-section h2 {
     text-align: center;
     font-family: 'Playfair Display', serif;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     font-size: 2.5rem;
     color: white;
+    position: relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-/* --- STYLE GRID ATAS --- */
+.gallery-section h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--primary-color);
+    border-radius: 2px;
+}
+
+/* --- MOSAIK GALLERY LAYOUT --- */
 .gallery-grid-top {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 2px; /* Reduced gap to almost none */
+    grid-template-columns: repeat(6, 1fr); /* 6 columns for complex mosaik */
+    grid-auto-rows: 150px; /* Consistent row height */
+    gap: 2px; /* Minimal gap */
     margin-bottom: 20px;
+}
+
+/* Mosaik layout - different sizes for artistic effect */
+.grid-item:nth-child(1) {
+    grid-column: span 2; /* Wide image */
+    grid-row: span 2; /* Tall image */
+    height: auto;
+}
+
+.grid-item:nth-child(2) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(3) {
+    grid-column: span 1;
+    grid-row: span 2; /* Tall image */
+    height: auto;
+}
+
+.grid-item:nth-child(4) {
+    grid-column: span 2; /* Wide image */
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(5) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(6) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(7) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(8) {
+    grid-column: span 2; /* Wide image */
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(9) {
+    grid-column: span 1;
+    grid-row: span 2; /* Tall image */
+    height: auto;
+}
+
+.grid-item:nth-child(10) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item:nth-child(11) {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: auto;
+}
+
+.grid-item {
+    aspect-ratio: 1/1; /* Base aspect ratio */
+    overflow: hidden;
+    position: relative;
 }
 
 .grid-item img {
@@ -1182,36 +1272,104 @@ p {
     height: 100%;
     object-fit: cover;
     object-position: center top;
-    border: 2px solid var(--border-color);
-    transition: 0.3s;
+    transition: all 0.3s ease;
     cursor: pointer;
-    border-radius: 4px;
-}
-
-.grid-item {
-    height: 148px; /* Consistent height for all items */
-    aspect-ratio: 1/1; /* Square aspect ratio */
+    display: block;
 }
 
 /* Override for responsive behavior */
 @media (max-width: 768px) {
     .gallery-grid-top {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* Fewer columns on mobile */
+        grid-auto-rows: 120px;
+    }
+
+    /* Simplified mosaik for mobile */
+    .grid-item:nth-child(1) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .grid-item:nth-child(3) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .grid-item:nth-child(4) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .grid-item:nth-child(6) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .grid-item:nth-child(8) {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .grid-item:nth-child(9) {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .grid-item:nth-child(11) {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 }
 
 @media (max-width: 480px) {
     .gallery-grid-top {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: 100px;
     }
-    .grid-item {
-        height: 200px;
+
+    .grid-item:nth-child(1),
+    .grid-item:nth-child(4),
+    .grid-item:nth-child(8) {
+        grid-column: span 2;
     }
 }
 
 .grid-item img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    z-index: 2;
+    position: relative;
+}
+
+/* Add a subtle animation to grid items */
+.grid-item {
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(212, 175, 55, 0.1), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.grid-item:hover::before {
+    opacity: 1;
+}
+
+/* Enhanced mosaik effect */
+.grid-item:hover {
+    border-color: var(--primary-color);
 }
 
 /* --- STYLE AUTO-SCROLL BAWAH --- */
@@ -1221,6 +1379,8 @@ p {
     padding: 20px 0;
     position: relative;
     margin-top: 40px;
+    background: rgba(0, 0, 0, 0.05); /* Subtle background for contrast */
+    border-radius: 8px;
 }
 
 .gallery-strip {
@@ -1228,6 +1388,7 @@ p {
     gap: 2px; /* Reduced gap */
     width: max-content;
     animation: scroll-left 30s linear infinite;
+    padding: 10px 0; /* Add some padding */
 }
 
 .gallery-photo {
@@ -1237,20 +1398,30 @@ p {
     object-position: center top;
     border: 2px solid var(--border-color);
     cursor: pointer;
-    transition: transform 0.3s;
+    transition: all 0.3s ease;
     border-radius: 4px;
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .gallery-photo:hover {
-    transform: scale(1.05);
+    transform: scale(1.15);
     z-index: 2;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    border-color: var(--primary-color);
+    position: relative;
+    /* Lift effect on hover */
+    margin: 5px 0;
 }
 
 /* Animasi Berjalan */
 @keyframes scroll-left {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); } /* Bergeser setengah dari total lebar */
+}
+
+/* Pause animation on hover for better UX */
+.gallery-auto-scroll:hover .gallery-strip {
+    animation-play-state: paused;
 }
 
 /* Responsive Mobile */
