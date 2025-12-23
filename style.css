@@ -1172,8 +1172,8 @@ p {
 /* --- STYLE GRID ATAS --- */
 .gallery-grid-top {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2px; /* Reduced gap to almost none */
     margin-bottom: 20px;
 }
 
@@ -1188,16 +1188,25 @@ p {
     border-radius: 4px;
 }
 
-.grid-item.tall {
-    grid-row: span 2;
-    height: 500px;
+.grid-item {
+    height: 148px; /* Consistent height for all items */
+    aspect-ratio: 1/1; /* Square aspect ratio */
 }
-.grid-item.wide {
-    grid-column: span 2;
-    height: 240px;
+
+/* Override for responsive behavior */
+@media (max-width: 768px) {
+    .gallery-grid-top {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
-.grid-item.standard {
-    height: 245px;
+
+@media (max-width: 480px) {
+    .gallery-grid-top {
+        grid-template-columns: 1fr;
+    }
+    .grid-item {
+        height: 200px;
+    }
 }
 
 .grid-item img:hover {
@@ -1216,14 +1225,14 @@ p {
 
 .gallery-strip {
     display: flex;
-    gap: 15px;
+    gap: 2px; /* Reduced gap */
     width: max-content;
     animation: scroll-left 30s linear infinite;
 }
 
 .gallery-photo {
-    width: 200px;
-    height: 150px;
+    width: 100px; /* Smaller width */
+    height: 80px; /* Smaller height */
     object-fit: cover;
     object-position: center top;
     border: 2px solid var(--border-color);
@@ -1247,41 +1256,89 @@ p {
 /* Responsive Mobile */
 @media (max-width: 768px) {
     .gallery-grid-top {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on medium screens */
+        gap: 2px;
     }
-    .grid-item.tall, .grid-item.wide, .grid-item.standard {
-        grid-column: span 1;
-        grid-row: span 1;
-        height: 250px;
+    .grid-item {
+        height: 120px; /* Smaller height for mobile */
     }
 
     .gallery-photo {
-        width: 150px;
-        height: 110px;
+        width: 80px; /* Smaller width */
+        height: 60px; /* Smaller height */
     }
 
     .gallery-section h2 {
         font-size: 2rem;
     }
+
+    /* Adjust other sections for mobile */
+    .couple-grid {
+        grid-template-columns: 1fr; /* Stack couple cards on mobile */
+        gap: 2rem;
+    }
+
+    .rsvp-content {
+        grid-template-columns: 1fr; /* Stack RSVP content on mobile */
+        gap: 2rem;
+    }
 }
 
 @media (max-width: 480px) {
     .gallery-grid-top {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+        gap: 1px; /* Even smaller gap */
     }
-    .grid-item.tall, .grid-item.wide, .grid-item.standard {
-        grid-column: span 1;
-        grid-row: span 1;
-        height: 200px;
+    .grid-item {
+        height: 100px; /* Even smaller height */
     }
 
     .gallery-photo {
-        width: 120px;
-        height: 90px;
+        width: 70px; /* Even smaller width */
+        height: 50px; /* Even smaller height */
     }
 
     .gallery-section h2 {
         font-size: 1.8rem;
+    }
+
+    /* Additional mobile optimizations */
+    .home-section {
+        padding: 2rem 1rem;
+    }
+
+    .couple-name-top h1:nth-child(2) {
+        font-size: 1.8rem;
+    }
+
+    .couple-name-top h3 {
+        font-size: 1.1rem;
+    }
+
+    .guest-name p {
+        font-size: 1.2rem;
+    }
+
+    .btn-open {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .countdown-timer {
+        gap: 0.8rem;
+    }
+
+    .countdown-box {
+        min-width: 70px;
+        padding: 0.8rem;
+    }
+
+    .countdown-box span {
+        font-size: 1.6rem;
+    }
+
+    .countdown-box p {
+        font-size: 0.7rem;
     }
 }
 
@@ -2358,6 +2415,14 @@ button:disabled {
     gap: 1.2rem;
 }
 
+.footer p {
+    color: white; /* Ensure text is white on dark background */
+}
+
+.footer-note {
+    color: rgba(255, 255, 255, 0.85); /* Ensure footer note is visible */
+}
+
 .social-links {
     display: flex;
     gap: 1.8rem;
@@ -2517,6 +2582,32 @@ button:disabled {
 
     .wedding-date h2 {
         font-size: 1.8rem;
+    }
+
+    /* Improve mobile menu */
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        display: none;
+    }
+
+    .navbar.active {
+        display: block;
     }
 }
 
@@ -2900,6 +2991,11 @@ button:disabled {
 
     .footer-note {
         font-size: 0.85rem;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
+        gap: 0.8rem;
     }
 
     .social-links a {

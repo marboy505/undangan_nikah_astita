@@ -24,16 +24,6 @@
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
 </head>
 <body>
-    <!-- Loader -->
-    <div id="loader" class="loader">
-        <div class="loader-content">
-            <div class="loader-animation">
-                <i class="fas fa-ring"></i>
-            </div>
-            <h2>Assalamu'alaikum Warahmatullahi Wabarakatuh</h2>
-            <p>Teriring doa dan pengharapan, kami mengundang Bapak/Ibu/Saudara/i</p>
-        </div>
-    </div>
 
     <!-- Music Player -->
     <audio id="bg-music" loop>
@@ -44,28 +34,6 @@
             <i class="fas fa-music" id="music-icon"></i>
         </div> -->
 
-    <!-- Header -->
-    <header class="header" role="banner">
-        <div class="music-toggle" role="button" tabindex="0" aria-label="Toggle music">
-            <i class="fas fa-music" id="music-icon" aria-hidden="true"></i>
-        </div>
-        <div class="menu-toggle" id="menu-toggle" role="button" tabindex="0" aria-label="Toggle navigation menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </div>
-        <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
-            <ul>
-                <li><a href="#home" aria-label="Go to home section">Beranda</a></li>
-                <li><a href="#couple" aria-label="Go to couple section">Pasangan</a></li>
-                <li><a href="#timeline" aria-label="Go to love story section">Love Story</a></li>
-                <li><a href="#event" aria-label="Go to event details section">Acara</a></li>
-                <li><a href="#gallery" aria-label="Go to gallery section">Galeri</a></li>
-                <li><a href="#gift" aria-label="Go to gift section">Love Gift</a></li>
-                <li><a href="#wishes" aria-label="Go to wishes section">Ucapan</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <!-- Home Section -->
     <section id="home" class="home-section" role="banner" aria-label="Home">
@@ -98,7 +66,7 @@
     </section>
 
     <!-- Invitation Section -->
-    <section id="invitation" class="invitation-section">
+    <section id="invitation" class="invitation-section" style="display: none;">
         <div class="invitation-content">
             <div class="couple-names reveal">
                 <h1>Muhammad Irfan & Astita Suntiasih</h1>
@@ -307,14 +275,41 @@
             <h2 data-aos="fade-up">Our Gallery</h2>
 
             <div class="gallery-grid-top" data-aos="fade-up">
-                <div class="grid-item tall">
+                <div class="grid-item">
                     <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox('images/IMG_3415.JPG', 'Galeri 1', 0)" loading="lazy">
                 </div>
-                <div class="grid-item wide">
+                <div class="grid-item">
                     <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox('images/IMG_3416.JPG', 'Galeri 2', 1)" loading="lazy">
                 </div>
-                <div class="grid-item standard">
+                <div class="grid-item">
                     <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox('images/IMG_3420.JPG', 'Galeri 3', 2)" loading="lazy">
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/IMG_3423.JPG" alt="Galeri 4" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)" loading="lazy">
+                </div>
+                <div class="grid-item">
+                    <img src="images/IMG_3426.JPG" alt="Galeri 5" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)" loading="lazy">
+                </div>
+                <div class="grid-item">
+                    <img src="images/IMG_3428.JPG" alt="Galeri 6" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)" loading="lazy">
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/IMG_3429.JPG" alt="Galeri 7" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)" loading="lazy">
+                </div>
+                <div class="grid-item">
+                    <img src="images/IMG_3432.JPG" alt="Galeri 8" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)" loading="lazy">
+                </div>
+                <div class="grid-item">
+                    <img src="images/IMG_3433.JPG" alt="Galeri 9" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)" loading="lazy">
+                </div>
+
+                <div class="grid-item">
+                    <img src="images/IMG_3434(1).JPG" alt="Galeri 10" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)" loading="lazy">
+                </div>
+                <div class="grid-item">
+                    <img src="images/IMG_3438.JPG" alt="Galeri 11" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)" loading="lazy">
                 </div>
             </div>
 
@@ -496,7 +491,9 @@
         <div class="container">
             <p>© 2026 Muhammad Irfan & Astita Suntiasih. Dengan penuh cinta.</p>
             <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/astitasuntiasihh" target="_blank" rel="noopener noreferrer" aria-label="Instagram Astita Suntiasih"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/muhammadirfanidris" target="_blank" rel="noopener noreferrer" aria-label="Instagram Muhammad Irfan"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/muhammadam_r" target="_blank" rel="noopener noreferrer" aria-label="Instagram muhammadam_r"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
             <p class="footer-note">Terima kasih atas kehadiran dan doa restu Bapak/Ibu/Saudara/i</p>
@@ -518,6 +515,15 @@
         document.getElementById("write").style.textAlign="center"
     }
 
+    // Initially hide all sections except home
+    document.addEventListener('DOMContentLoaded', function() {
+        // Hide all sections except the home section
+        const allSections = document.querySelectorAll('section:not(#home)');
+        allSections.forEach(section => {
+            section.style.display = 'none';
+        });
+    });
+
     // Handle "Buka Undangan" button click
     document.querySelector('.btn-open').addEventListener('click', function(e) {
         e.preventDefault();
@@ -537,8 +543,8 @@
             document.getElementById('home').style.display = 'none';
 
             // Show all hidden sections
-            const hiddenSections = document.querySelectorAll('section[style*="display: none"]');
-            hiddenSections.forEach(section => {
+            const allSections = document.querySelectorAll('section:not(#home)');
+            allSections.forEach(section => {
                 section.style.display = 'block';
             });
 
