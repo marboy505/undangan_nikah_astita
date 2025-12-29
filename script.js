@@ -537,6 +537,84 @@ function copyToClipboard(elementId) {
     alert('Nomor rekening berhasil disalin!');
 }
 
+// Copy text to clipboard functionality
+function copyToClipboardText(text) {
+    // Create temporary input
+    const tempInput = document.createElement('input');
+    tempInput.value = text;
+    document.body.appendChild(tempInput);
+    tempInput.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempInput);
+
+    // Show success message
+    alert('Teks berhasil disalin!');
+}
+
+// Add to calendar functionality
+function addToCalendar() {
+    // Create calendar event in iCalendar format
+    const startDate = '20260111T080000'; // YYYYMMDDTHHMMSS format for 08:00 AM
+    const endDate = '20260111T140000'; // 02:00 PM
+    const title = 'Pernikahan Muhammad Irfan & Astita Suntiasih';
+    const location = 'GEDUNG AULA LAYANAN SOSIAL GRIYA HARAPAN INDAH, DINAS SOSIAL PROV. JAWA BARAT';
+    const description = 'Acara pernikahan Muhammad Irfan & Astita Suntiasih pada 11 Januari 2026.';
+
+    // Create the iCal format
+    const icsContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'BEGIN:VEVENT',
+        `DTSTART:${startDate}`,
+        `DTEND:${endDate}`,
+        `SUMMARY:${title}`,
+        `LOCATION:${location}`,
+        `DESCRIPTION:${description}`,
+        'END:VEVENT',
+        'END:VCALENDAR'
+    ].join('\n');
+
+    // Create a data URI for the iCal file
+    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+
+    // Create a temporary link to download the file
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'pernikahan_muhammad_irfan_astita.ics';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+
+    // Show success message
+    alert('Kalender berhasil ditambahkan! Silakan buka file yang diunduh untuk menambahkannya ke aplikasi kalender Anda.');
+}
+
+// Set reminder functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const reminderButtons = document.querySelectorAll('.reminder-btn');
+
+    reminderButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const days = this.getAttribute('data-days');
+            alert(`Pengingat telah diatur ${days} hari sebelum pernikahan (pada tanggal ${getReminderDate(days)}).`);
+        });
+    });
+});
+
+// Helper function to calculate reminder date
+function getReminderDate(daysBefore) {
+    const weddingDate = new Date('January 11, 2026');
+    const reminderDate = new Date(weddingDate);
+    reminderDate.setDate(weddingDate.getDate() - parseInt(daysBefore));
+
+    return reminderDate.toLocaleDateString('id-ID', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    });
+}
+
 // Copy address functionality
 function copyAddress() {
     const addressText = `Muhammad Irfan & Astita Suntiasih
@@ -797,9 +875,263 @@ function updateHeader() {
     headerTicking = false;
 }
 
+// Progress bar functionality
+function updateProgressBar() {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    document.getElementById('progressBar').style.width = scrolled + '%';
+}
+
+window.addEventListener('scroll', updateProgressBar);
+
+// Share functions
+function shareToWhatsApp(e) {
+    e.preventDefault();
+    const shareUrl = window.location.href;
+    const shareText = 'Undangan Pernikahan Muhammad Irfan & Astita Suntiasih - 11 Januari 2026';
+    const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+function shareToFacebook(e) {
+    e.preventDefault();
+    const shareUrl = window.location.href;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+    window.open(facebookUrl, '_blank');
+}
+
+function shareToTwitter(e) {
+    e.preventDefault();
+    const shareText = 'Undangan Pernikahan Muhammad Irfan & Astita Suntiasih - 11 Januari 2026';
+    const shareUrl = window.location.href;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+    window.open(twitterUrl, '_blank');
+}
+
+function copyPageUrl(e) {
+    e.preventDefault();
+    navigator.clipboard.writeText(window.location.href).then(() => {
+        // Show a temporary notification
+        const notification = document.createElement('div');
+        notification.textContent = 'Tautan berhasil disalin!';
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            z-index: 10000;
+            font-size: 0.9rem;
+        `;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 2000);
+    }).catch(err => {
+        console.error('Failed to copy URL: ', err);
+        alert('Gagal menyalin tautan. Silakan salin secara manual.');
+    });
+}
+
+// Enhanced music toggle with state indicator
+document.addEventListener('DOMContentLoaded', function() {
+    const bgMusic = document.getElementById('bg-music');
+    const musicIcon = document.getElementById('music-icon');
+    const musicToggle = document.querySelector('.music-toggle');
+    const musicTooltip = document.querySelector('.music-tooltip');
+
+    bgMusic.volume = 0.3; // Set volume to 30%
+
+    // Music toggle functionality
+    musicToggle.addEventListener('click', function() {
+        if (bgMusic.paused) {
+            bgMusic.play()
+                .then(() => {
+                    musicIcon.style.color = 'white';
+                    musicToggle.classList.add('playing');
+                    musicTooltip.textContent = 'Musik: On';
+                })
+                .catch(e => {
+                    console.log("Music play prevented: ", e);
+                    // Show user prompt to enable audio if needed
+                    alert("Audio playback was prevented. Please interact with the page to enable music.");
+                });
+        } else {
+            bgMusic.pause();
+            musicIcon.style.color = '#8e5e3d';
+            musicToggle.classList.remove('playing');
+            musicTooltip.textContent = 'Musik: Off';
+        }
+    });
+});
+
+// Quick Navigation Menu
+document.addEventListener('DOMContentLoaded', function() {
+    const quickNavBtn = document.getElementById('quickNavBtn');
+    const quickNavMenu = document.getElementById('quickNavMenu');
+
+    if (quickNavBtn && quickNavMenu) {
+        quickNavBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            quickNavMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!quickNavBtn.contains(e.target) && !quickNavMenu.contains(e.target)) {
+                quickNavMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll for navigation links
+        const navLinks = quickNavMenu.querySelectorAll('a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    // Close the menu after clicking
+                    quickNavMenu.classList.remove('active');
+
+                    // Scroll to section
+                    targetSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    }
+});
+
+// Enhanced scroll animations
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements when they come into view
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+            }
+        });
+    }, observerOptions);
+
+    // Observe elements with data-animate attribute
+    document.querySelectorAll('[data-animate]').forEach(el => {
+        observer.observe(el);
+    });
+});
+
 window.addEventListener('scroll', function() {
     if (!headerTicking) {
         requestAnimationFrame(updateHeader);
         headerTicking = true;
     }
+});
+
+// Add floating animation to home section elements
+document.addEventListener('DOMContentLoaded', function() {
+    const homeElements = document.querySelectorAll('.couple-name-top > *, .couple-name-bottom > *:not(.open-button)');
+    homeElements.forEach((el, index) => {
+        el.style.animationDelay = `${index * 0.2}s`;
+        el.classList.add('animated');
+    });
+
+    // Initialize AOS after all content is loaded
+    if (typeof AOS !== 'undefined') {
+        AOS.refresh();
+    }
+});
+
+// Performance optimization: Lazy load images that are off-screen
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                observer.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => {
+        imageObserver.observe(img);
+    });
+});
+
+// Add error handling for image loading
+document.addEventListener('error', function(e) {
+    if (e.target.tagName.toLowerCase() === 'img') {
+        e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtc2l6ZT0iMTgiIGZpbGw9IiM5OTkiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj5JbWFnZSBFcnJvcjwvdGV4dD48L3N2Zz4=';
+        e.target.alt = 'Image failed to load';
+    }
+}, true);
+
+// Add error handling for audio loading
+document.addEventListener('DOMContentLoaded', function() {
+    const audio = document.getElementById('bg-music');
+    if (audio) {
+        audio.addEventListener('error', function() {
+            console.error('Audio failed to load or play');
+        });
+    }
+});
+
+// Gallery filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+
+    // Get both desktop and mobile gallery items
+    const desktopGalleryItems = document.querySelectorAll('.grid-item');
+    const mobileGalleryItems = document.querySelectorAll('.swiper-slide');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+
+            const filter = this.getAttribute('data-filter');
+
+            // Filter desktop gallery items
+            desktopGalleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.animation = 'fadeInScale 0.5s ease';
+                    }, 10);
+                } else {
+                    item.style.animation = 'none';
+                    item.style.display = 'none';
+                }
+            });
+
+            // Filter mobile gallery items
+            mobileGalleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.animation = 'fadeInScale 0.5s ease';
+                    }, 10);
+                } else {
+                    item.style.animation = 'none';
+                    item.style.display = 'none';
+                }
+            });
+        });
+    });
 });

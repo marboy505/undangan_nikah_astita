@@ -16,12 +16,22 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
     <link rel="preload" as="image" href="images/IMG_3420.JPG">
     <link rel="preload" as="image" href="images/IMG_3415.JPG">
+    <link rel="preload" as="style" href="style.css">
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/playfairdisplay/v30/nuFvD-vYSZviVYUb_rj3ij__anPXJzDwcbmjWBN2PKdFvXDXbtM.woff2" type="font/woff2" crossorigin>
+    <link rel="preload" as="font" href="https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrFJDUc1NECPY.woff2" type="font/woff2" crossorigin>
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#D4AF37">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Performance optimization -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
 </head>
 <body>
 
@@ -30,9 +40,10 @@
         <source src="music/Nadhif_Basalamah_-_kota_ini_tak_sama_tanpamu_(mp3.pm).mp3" type="audio/mpeg">
         Browser Anda tidak mendukung pemutar musik.
     </audio>
-        <!-- <div class="music-toggle">
-            <i class="fas fa-music" id="music-icon"></i>
-        </div> -->
+    <div class="music-toggle" title="Musik Pengantin">
+        <i class="fas fa-music" id="music-icon"></i>
+        <div class="music-tooltip">Musik: On</div>
+    </div>
 
 
     <!-- Home Section -->
@@ -274,43 +285,85 @@
         <div class="container">
             <h2 data-aos="fade-up">Our Gallery</h2>
 
-            <div class="gallery-grid-top" data-aos="fade-up">
-                <div class="grid-item">
+            <!-- Desktop Mosaik Gallery -->
+            <div class="gallery-grid-top desktop-gallery" data-aos="fade-up">
+                <div class="grid-item" data-category="prewedding">
                     <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox('images/IMG_3415.JPG', 'Galeri 1', 0)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="prewedding">
                     <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox('images/IMG_3416.JPG', 'Galeri 2', 1)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="prewedding">
                     <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox('images/IMG_3420.JPG', 'Galeri 3', 2)" loading="lazy">
                 </div>
 
-                <div class="grid-item">
+                <div class="grid-item" data-category="ceremony">
                     <img src="images/IMG_3423.JPG" alt="Galeri 4" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="ceremony">
                     <img src="images/IMG_3426.JPG" alt="Galeri 5" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="ceremony">
                     <img src="images/IMG_3428.JPG" alt="Galeri 6" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)" loading="lazy">
                 </div>
 
-                <div class="grid-item">
+                <div class="grid-item" data-category="reception">
                     <img src="images/IMG_3429.JPG" alt="Galeri 7" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="reception">
                     <img src="images/IMG_3432.JPG" alt="Galeri 8" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="reception">
                     <img src="images/IMG_3433.JPG" alt="Galeri 9" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)" loading="lazy">
                 </div>
 
-                <div class="grid-item">
+                <div class="grid-item" data-category="prewedding">
                     <img src="images/IMG_3434(1).JPG" alt="Galeri 10" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)" loading="lazy">
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" data-category="ceremony">
                     <img src="images/IMG_3438.JPG" alt="Galeri 11" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)" loading="lazy">
                 </div>
+            </div>
+
+            <!-- Mobile Swipe Gallery -->
+            <div class="mobile-gallery swiper" data-aos="fade-up" style="display: none;">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-category="prewedding">
+                        <img src="images/IMG_3415.JPG" alt="Galeri 1" onclick="openLightbox('images/IMG_3415.JPG', 'Galeri 1', 0)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="prewedding">
+                        <img src="images/IMG_3416.JPG" alt="Galeri 2" onclick="openLightbox('images/IMG_3416.JPG', 'Galeri 2', 1)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="prewedding">
+                        <img src="images/IMG_3420.JPG" alt="Galeri 3" onclick="openLightbox('images/IMG_3420.JPG', 'Galeri 3', 2)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="ceremony">
+                        <img src="images/IMG_3423.JPG" alt="Galeri 4" onclick="openLightbox('images/IMG_3423.JPG', 'Galeri 4', 3)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="ceremony">
+                        <img src="images/IMG_3426.JPG" alt="Galeri 5" onclick="openLightbox('images/IMG_3426.JPG', 'Galeri 5', 4)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="ceremony">
+                        <img src="images/IMG_3428.JPG" alt="Galeri 6" onclick="openLightbox('images/IMG_3428.JPG', 'Galeri 6', 5)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="reception">
+                        <img src="images/IMG_3429.JPG" alt="Galeri 7" onclick="openLightbox('images/IMG_3429.JPG', 'Galeri 7', 6)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="reception">
+                        <img src="images/IMG_3432.JPG" alt="Galeri 8" onclick="openLightbox('images/IMG_3432.JPG', 'Galeri 8', 7)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="reception">
+                        <img src="images/IMG_3433.JPG" alt="Galeri 9" onclick="openLightbox('images/IMG_3433.JPG', 'Galeri 9', 8)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="prewedding">
+                        <img src="images/IMG_3434(1).JPG" alt="Galeri 10" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)" loading="lazy">
+                    </div>
+                    <div class="swiper-slide" data-category="ceremony">
+                        <img src="images/IMG_3438.JPG" alt="Galeri 11" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)" loading="lazy">
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
 
             <div class="gallery-auto-scroll" data-aos="fade-up">
@@ -333,6 +386,14 @@
                     <img src="images/IMG_3434(1).JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3434(1).JPG', 'Galeri 10', 9)" loading="lazy">
                     <img src="images/IMG_3438.JPG" class="gallery-photo" onclick="openLightbox('images/IMG_3438.JPG', 'Galeri 11', 10)" loading="lazy">
                 </div>
+            </div>
+
+            <!-- Gallery Filter Controls -->
+            <div class="gallery-filters" data-aos="fade-up">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="prewedding">Prewedding</button>
+                <button class="filter-btn" data-filter="ceremony">Akad</button>
+                <button class="filter-btn" data-filter="reception">Resepsi</button>
             </div>
         </div>
     </section>
@@ -358,19 +419,112 @@
                 <p>Doa restu Bapak/Ibu/Saudara/i merupakan karunia yang sangat berarti bagi kami. Namun apabila memberi adalah ungkapan tanda kasih, kami dengan senang hati menerimanya.</p>
             </div>
 
-            <div class="gift-cards">
-                <div class="gift-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bank-logo">
-                        <i class="fas fa-university"></i>
+            <div class="gift-options">
+                <!-- Digital Gift -->
+                <div class="gift-option" data-aos="fade-up" data-aos-delay="50">
+                    <div class="gift-option-header">
+                        <h3><i class="fas fa-gift"></i> Hadiah Digital</h3>
+                        <p>Kirim hadiah langsung ke rekening kami</p>
                     </div>
-                    <h3>Bank BCA</h3>
-                    <div class="account-details">
-                        <p class="account-number" id="bca-account">2831714346</p>
-                        <p class="account-name">a.n. Astita Suntiasih</p>
+                    <div class="gift-cards">
+                        <div class="gift-card">
+                            <div class="bank-logo">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3>Bank BCA</h3>
+                            <div class="account-details">
+                                <p class="account-number" id="bca-account">2831714346</p>
+                                <p class="account-name">a.n. Astita Suntiasih</p>
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('bca-account')">
+                                <i class="fas fa-copy"></i> Salin Nomor Rekening
+                            </button>
+                        </div>
                     </div>
-                    <button class="copy-btn" onclick="copyToClipboard('bca-account')">
-                        <i class="fas fa-copy"></i> Salin Nomor Rekening
+                </div>
+
+                <!-- E-Wallet -->
+                <div class="gift-option" data-aos="fade-up" data-aos-delay="100">
+                    <div class="gift-option-header">
+                        <h3><i class="fas fa-wallet"></i> E-Wallet</h3>
+                        <p>Kirim melalui dompet digital</p>
+                    </div>
+                    <div class="gift-cards">
+                        <div class="gift-card">
+                            <div class="bank-logo">
+                                <i class="fab fa-google-pay"></i>
+                            </div>
+                            <h3>Google Pay</h3>
+                            <div class="account-details">
+                                <p class="account-number">astitasuntiasih@gmail.com</p>
+                                <p class="account-name">Astita Suntiasih</p>
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboardText('astitasuntiasih@gmail.com')">
+                                <i class="fas fa-copy"></i> Salin Email
+                            </button>
+                        </div>
+                        <div class="gift-card">
+                            <div class="bank-logo">
+                                <i class="fab fa-cc-visa"></i>
+                            </div>
+                            <h3>OVO</h3>
+                            <div class="account-details">
+                                <p class="account-number" id="ovo-number">081234567890</p>
+                                <p class="account-name">Astita Suntiasih</p>
+                            </div>
+                            <button class="copy-btn" onclick="copyToClipboard('ovo-number')">
+                                <i class="fas fa-copy"></i> Salin Nomor
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Physical Gift -->
+                <div class="gift-option" data-aos="fade-up" data-aos-delay="150">
+                    <div class="gift-option-header">
+                        <h3><i class="fas fa-home"></i> Hadiah Fisik</h3>
+                        <p>Kirim hadiah ke alamat berikut</p>
+                    </div>
+                    <div class="gift-card address-card">
+                        <div class="address-details">
+                            <p>Muhammad Irfan & Astita Suntiasih</p>
+                            <p>Jl. Contoh Alamat No. 123, RT/RW 001/002</p>
+                            <p>Kelurahan Contoh, Kecamatan Contoh</p>
+                            <p>Kota Bandung, Jawa Barat 40123</p>
+                            <p>Telepon: +62 812-3456-7890</p>
+                        </div>
+                        <button class="copy-btn" onclick="copyAddress()">
+                            <i class="fas fa-copy"></i> Salin Alamat
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Save The Date Section -->
+    <section id="save-date" class="save-date-section">
+        <div class="container">
+            <h2 data-aos="fade-up">Save The Date</h2>
+            <div class="save-date-content" data-aos="fade-up">
+                <div class="save-date-card">
+                    <div class="save-date-icon">
+                        <i class="fas fa-calendar-check"></i>
+                    </div>
+                    <h3>Catat Tanggalnya!</h3>
+                    <p>11 Januari 2026</p>
+                    <p>Acara pernikahan kami akan dilaksanakan pada tanggal tersebut. Silakan simpan tanggalnya dan pastikan Anda bisa hadir di hari spesial kami.</p>
+                    <button class="add-calendar-btn" onclick="addToCalendar()">
+                        <i class="fas fa-calendar-plus"></i> Tambahkan ke Kalender
                     </button>
+                    <div class="reminder-section">
+                        <p>Atur pengingat untuk tanggal pernikahan kami:</p>
+                        <div class="reminder-options">
+                            <button class="reminder-btn" data-days="7">7 hari sebelum</button>
+                            <button class="reminder-btn" data-days="3">3 hari sebelum</button>
+                            <button class="reminder-btn" data-days="1">1 hari sebelum</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -418,6 +572,7 @@
                         <label for="name">Nama Lengkap *</label>
                         <input type="text" id="name" name="name" placeholder="Nama Lengkap" required aria-required="true" minlength="2" maxlength="100">
                         <div class="error-message" id="name-error" role="alert" aria-live="polite"></div>
+                        <div class="success-icon" style="display: none;">✓</div>
                     </div>
 
                     <div class="form-group">
@@ -430,6 +585,7 @@
                             <option value="4">4 Orang</option>
                         </select>
                         <div class="error-message" id="attendance-error" role="alert" aria-live="polite"></div>
+                        <div class="success-icon" style="display: none;">✓</div>
                     </div>
 
                     <div class="form-group">
@@ -439,13 +595,14 @@
                             <label><input type="radio" id="confirm-tidak" name="confirm" value="tidak"> Tidak Hadir</label>
                         </div>
                         <div class="error-message" id="confirm-error" role="alert" aria-live="polite"></div>
+                        <div class="success-icon" style="display: none;">✓</div>
                     </div>
 
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label for="message">Ucapan / Doa</label>
                         <textarea id="message" name="message" placeholder="Ucapan / Doa" maxlength="500"></textarea>
                         <div class="char-count">0/500</div>
-                    </div>
+                    </div> -->
 
                     <button type="submit" aria-label="Submit RSVP confirmation">
                         <span class="btn-text">Kirim Konfirmasi</span>
@@ -486,24 +643,116 @@
         </div>
     </section>
 
+    <!-- Quick Navigation Button for Desktop -->
+    <div class="quick-nav">
+        <button class="quick-nav-btn" id="quickNavBtn">
+            <i class="fas fa-compass"></i>
+        </button>
+        <div class="quick-nav-menu" id="quickNavMenu">
+            <a href="#home" class="nav-link" aria-label="Home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </a>
+            <a href="#couple" class="nav-link" aria-label="About Couple">
+                <i class="fas fa-heart"></i>
+                <span>Couple</span>
+            </a>
+            <a href="#timeline" class="nav-link" aria-label="Love Story">
+                <i class="fas fa-ring"></i>
+                <span>Story</span>
+            </a>
+            <a href="#event" class="nav-link" aria-label="Event Details">
+                <i class="fas fa-calendar"></i>
+                <span>Event</span>
+            </a>
+            <a href="#gallery" class="nav-link" aria-label="Gallery">
+                <i class="fas fa-images"></i>
+                <span>Gallery</span>
+            </a>
+            <a href="#gift" class="nav-link" aria-label="Gift">
+                <i class="fas fa-gift"></i>
+                <span>Gift</span>
+            </a>
+            <a href="#rsvp" class="nav-link" aria-label="RSVP">
+                <i class="fas fa-check-circle"></i>
+                <span>RSVP</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#home" class="nav-link active" aria-label="Home">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#couple" class="nav-link" aria-label="About Couple">
+            <i class="fas fa-heart"></i>
+            <span>Couple</span>
+        </a>
+        <a href="#timeline" class="nav-link" aria-label="Love Story">
+            <i class="fas fa-ring"></i>
+            <span>Story</span>
+        </a>
+        <a href="#event" class="nav-link" aria-label="Event Details">
+            <i class="fas fa-calendar"></i>
+            <span>Event</span>
+        </a>
+        <a href="#gallery" class="nav-link" aria-label="Gallery">
+            <i class="fas fa-images"></i>
+            <span>Gallery</span>
+        </a>
+        <a href="#gift" class="nav-link" aria-label="Gift">
+            <i class="fas fa-gift"></i>
+            <span>Gift</span>
+        </a>
+    </nav>
+
     <!-- Footer -->
     <footer class="footer" id="main-footer">
         <div class="container">
             <p>© 2026 Muhammad Irfan & Astita Suntiasih. Dengan penuh cinta.</p>
+            <p class="footer-note">Harapan Kami kehadiran dan doa restu Bapak/Ibu/Saudara/i</p>
+            <p class="footer-note">made by :</p>
             <div class="social-links">
-                <a href="https://instagram.com/astitasuntiasihh" target="_blank" rel="noopener noreferrer" aria-label="Instagram Astita Suntiasih"><i class="fab fa-instagram"></i></a>
-                <a href="https://instagram.com/muhammadirfanidris" target="_blank" rel="noopener noreferrer" aria-label="Instagram Muhammad Irfan"><i class="fab fa-instagram"></i></a>
                 <a href="https://instagram.com/muhammadam_r" target="_blank" rel="noopener noreferrer" aria-label="Instagram muhammadam_r"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-whatsapp"></i></a>
             </div>
-            <p class="footer-note">Terima kasih atas kehadiran dan doa restu Bapak/Ibu/Saudara/i</p>
-            <p class="footer-note">Acara ini diselenggarakan dengan tetap memperhatikan protokol kesehatan</p>
+
+            <!-- Share Button -->
+            <div class="share-section">
+                <h4>Bagikan Undangan Ini</h4>
+                <div class="share-buttons">
+                    <a href="#" class="share-btn whatsapp" onclick="shareToWhatsApp(event)" title="Bagikan via WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="share-btn facebook" onclick="shareToFacebook(event)" title="Bagikan via Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="share-btn twitter" onclick="shareToTwitter(event)" title="Bagikan via Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="share-btn copy-link" onclick="copyPageUrl(event)" title="Salin Tautan">
+                        <i class="fas fa-link"></i>
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Progress Indicator -->
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
 
     <a id="scroll-top" class="scroll-top" href="#"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="script.js"></script>
 
     <script>
@@ -548,6 +797,134 @@
         }
     }
 
+    // Mobile navigation functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add active class to mobile nav links based on current section
+        const navLinks = document.querySelectorAll('.mobile-nav .nav-link');
+        const sections = document.querySelectorAll('section[id]');
+
+        function updateActiveNav() {
+            let currentSection = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${currentSection}`) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        // Update active nav on scroll
+        window.addEventListener('scroll', updateActiveNav);
+
+        // Smooth scrolling for mobile nav links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80, // Account for fixed elements
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Add floating action button for mobile after "Buka Undangan" is clicked
+        let bukaUndanganClicked = false;
+        const homeSection = document.getElementById('home');
+        const openBtn = document.querySelector('.btn-open');
+
+        // Create floating action button for navigation after "Buka Undangan"
+        const floatingNavBtn = document.createElement('a');
+        floatingNavBtn.href = '#invitation';
+        floatingNavBtn.className = 'floating-nav-btn';
+        floatingNavBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+        floatingNavBtn.title = 'Kembali ke Atas';
+        floatingNavBtn.style.display = 'none'; // Initially hidden
+        document.body.appendChild(floatingNavBtn);
+
+        // Handle the "Buka Undangan" button click
+        if (openBtn) {
+            openBtn.addEventListener('click', function() {
+                bukaUndanganClicked = true;
+            });
+        }
+
+        // Show/hide floating button based on scroll position
+        window.addEventListener('scroll', function() {
+            if (bukaUndanganClicked && window.scrollY > 300) {
+                floatingNavBtn.style.display = 'flex';
+            } else {
+                floatingNavBtn.style.display = 'none';
+            }
+        });
+
+        // Add click event to floating button to scroll to top
+        floatingNavBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+
+    // Initialize Swiper for mobile gallery
+    let mySwiper;
+    function initSwiper() {
+        // Check if swiper element exists and initialize only once
+        if (document.querySelector('.mobile-gallery') && !mySwiper) {
+            mySwiper = new Swiper('.mobile-gallery', {
+                // Optional parameters
+                loop: true,
+
+                // If we need pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+
+                // Navigation arrows
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+
+                // And if we need scrollbar
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+
+                // Responsive breakpoints
+                breakpoints: {
+                    640: {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 40,
+                    },
+                }
+            });
+        }
+    }
+
     // Initially hide all sections except home and hide footer
     document.addEventListener('DOMContentLoaded', function() {
         // Hide all sections except the home section
@@ -561,6 +938,16 @@
         if(footer) {
             footer.style.display = 'none';
         }
+
+        // Initialize Swiper after DOM is loaded
+        if (window.innerWidth <= 768) {
+            // Show mobile gallery and hide desktop gallery
+            const mobileGallery = document.querySelector('.mobile-gallery');
+            if (mobileGallery) {
+                mobileGallery.style.display = 'block';
+            }
+            initSwiper();
+        }
     });
 
     // Handle "Buka Undangan" button click
@@ -571,7 +958,11 @@
         const btnText = btn.querySelector('.btn-text');
         const loader = btn.querySelector('.btn-loader');
 
-        // Show loading state
+        // Show loading overlay
+        const loadingOverlay = document.getElementById('loadingOverlay');
+        loadingOverlay.classList.add('active');
+
+        // Show loading state on button
         btn.classList.add('loading');
         btnText.style.display = 'none';
         loader.style.display = 'flex';
@@ -602,12 +993,13 @@
                 behavior: 'smooth'
             });
 
-            // Hide loading state after animation
+            // Hide loading overlay after animation
             setTimeout(() => {
+                loadingOverlay.classList.remove('active');
                 btn.classList.remove('loading');
                 btnText.style.display = 'inline';
                 loader.style.display = 'none';
-            }, 1000);
+            }, 1500);
         }, 800);
     });
 
@@ -713,6 +1105,82 @@
         shareBtn.onclick = shareWedding;
         footer.appendChild(shareBtn);
     }
+
+    // Add real-time validation with success icons
+    document.addEventListener('DOMContentLoaded', function() {
+        // RSVP form validation
+        const rsvpName = document.getElementById('name');
+        const rsvpAttendance = document.getElementById('attendance');
+        const rsvpConfirm = document.querySelectorAll('input[name="confirm"]');
+        const rsvpMessage = document.getElementById('message');
+
+        if (rsvpName) {
+            rsvpName.addEventListener('input', function() {
+                const formGroup = this.closest('.form-group');
+                const successIcon = formGroup.querySelector('.success-icon');
+
+                if (this.value.trim().length >= 2 && this.value.trim().length <= 100) {
+                    formGroup.classList.remove('error');
+                    formGroup.classList.add('success');
+                    document.getElementById('name-error').style.display = 'none';
+                    if (successIcon) successIcon.style.display = 'block';
+                } else {
+                    formGroup.classList.remove('success');
+                    if (successIcon) successIcon.style.display = 'none';
+                }
+            });
+        }
+
+        if (rsvpAttendance) {
+            rsvpAttendance.addEventListener('change', function() {
+                const formGroup = this.closest('.form-group');
+                const successIcon = formGroup.querySelector('.success-icon');
+
+                if (this.value) {
+                    formGroup.classList.remove('error');
+                    formGroup.classList.add('success');
+                    document.getElementById('attendance-error').style.display = 'none';
+                    if (successIcon) successIcon.style.display = 'block';
+                } else {
+                    formGroup.classList.remove('success');
+                    if (successIcon) successIcon.style.display = 'none';
+                }
+            });
+        }
+
+        if (rsvpConfirm) {
+            rsvpConfirm.forEach(function(radio) {
+                radio.addEventListener('change', function() {
+                    const formGroup = this.closest('.form-group');
+                    const successIcon = formGroup.querySelector('.success-icon');
+
+                    document.getElementById('confirm-error').style.display = 'none';
+                    formGroup.classList.remove('error');
+                    formGroup.classList.add('success');
+                    if (successIcon) successIcon.style.display = 'block';
+                });
+            });
+        }
+
+        if (rsvpMessage) {
+            rsvpMessage.addEventListener('input', function() {
+                updateCharCount('message', 500);
+
+                const formGroup = this.closest('.form-group');
+                const successIcon = formGroup.querySelector('.success-icon');
+
+                if (this.value.trim().length >= 5 && this.value.trim().length <= 500) {
+                    formGroup.classList.remove('error');
+                    formGroup.classList.add('success');
+                    document.getElementById('message-error').style.display = 'none';
+                    if (successIcon) successIcon.style.display = 'block';
+                } else {
+                    formGroup.classList.remove('success');
+                    if (successIcon) successIcon.style.display = 'none';
+                }
+            });
+        }
+    });
     </script>
 
     <style>
