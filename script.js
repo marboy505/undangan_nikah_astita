@@ -454,6 +454,16 @@ function openLightbox(imgSrc, altText, index) {
     const lightboxImg = document.getElementById('lightbox-img');
     const currentIndex = document.getElementById('current-index');
     const totalImages = document.getElementById('total-images');
+    const caption = document.getElementById('lightbox-caption');
+    const loader = document.querySelector('.lightbox-loader');
+
+    // Show loader
+    if (loader) {
+        loader.style.display = 'block';
+    }
+
+    // Hide image initially
+    lightboxImg.style.opacity = '0';
 
     // Set image source and alt
     lightboxImg.src = imgSrc;
@@ -463,6 +473,11 @@ function openLightbox(imgSrc, altText, index) {
     currentIndex.textContent = index + 1;
     totalImages.textContent = galleryImages.length;
 
+    // Update caption
+    if (caption) {
+        caption.textContent = altText;
+    }
+
     // Show the lightbox
     overlay.style.display = 'flex';
 
@@ -471,6 +486,15 @@ function openLightbox(imgSrc, altText, index) {
 
     // Add keyboard navigation
     document.addEventListener('keydown', handleKeyboard);
+
+    // Handle image load
+    lightboxImg.onload = function() {
+        if (loader) {
+            loader.style.display = 'none';
+        }
+        lightboxImg.style.opacity = '1';
+        lightboxImg.style.transition = 'opacity 0.3s ease';
+    };
 }
 
 function closeLightbox() {
@@ -479,6 +503,13 @@ function closeLightbox() {
         overlay.style.display = 'none';
         document.body.style.overflow = 'auto';
         document.removeEventListener('keydown', handleKeyboard);
+    }
+}
+
+function closeLightboxOnOverlay(event) {
+    // Close only if clicking on the overlay itself, not on the content
+    if (event.target.id === 'lightbox-overlay') {
+        closeLightbox();
     }
 }
 
@@ -493,14 +524,38 @@ function navigateLightbox(direction) {
 
     const lightboxImg = document.getElementById('lightbox-img');
     const currentIndex = document.getElementById('current-index');
+    const caption = document.getElementById('lightbox-caption');
+    const loader = document.querySelector('.lightbox-loader');
 
-    if (lightboxImg) {
-        lightboxImg.src = galleryImages[currentLightboxIndex];
-        lightboxImg.alt = `Galeri ${currentLightboxIndex + 1}`;
+    // Show loader
+    if (loader) {
+        loader.style.display = 'block';
     }
-    if (currentIndex) {
-        currentIndex.textContent = currentLightboxIndex + 1;
-    }
+
+    // Hide image initially with fade out
+    lightboxImg.style.opacity = '0';
+
+    // Small delay before changing image for smooth transition
+    setTimeout(() => {
+        if (lightboxImg) {
+            lightboxImg.src = galleryImages[currentLightboxIndex];
+            lightboxImg.alt = `Galeri ${currentLightboxIndex + 1}`;
+        }
+        if (currentIndex) {
+            currentIndex.textContent = currentLightboxIndex + 1;
+        }
+        if (caption) {
+            caption.textContent = `Galeri ${currentLightboxIndex + 1}`;
+        }
+
+        // Handle image load
+        lightboxImg.onload = function() {
+            if (loader) {
+                loader.style.display = 'none';
+            }
+            lightboxImg.style.opacity = '1';
+        };
+    }, 150);
 }
 
 function handleKeyboard(e) {
@@ -551,69 +606,6 @@ function copyToClipboardText(text) {
     alert('Teks berhasil disalin!');
 }
 
-// Add to calendar functionality
-function addToCalendar() {
-    // Create calendar event in iCalendar format
-    const startDate = '20260111T080000'; // YYYYMMDDTHHMMSS format for 08:00 AM
-    const endDate = '20260111T140000'; // 02:00 PM
-    const title = 'Pernikahan Muhammad Irfan & Astita Suntiasih';
-    const location = 'GEDUNG AULA LAYANAN SOSIAL GRIYA HARAPAN INDAH, DINAS SOSIAL PROV. JAWA BARAT';
-    const description = 'Acara pernikahan Muhammad Irfan & Astita Suntiasih pada 11 Januari 2026.';
-
-    // Create the iCal format
-    const icsContent = [
-        'BEGIN:VCALENDAR',
-        'VERSION:2.0',
-        'BEGIN:VEVENT',
-        `DTSTART:${startDate}`,
-        `DTEND:${endDate}`,
-        `SUMMARY:${title}`,
-        `LOCATION:${location}`,
-        `DESCRIPTION:${description}`,
-        'END:VEVENT',
-        'END:VCALENDAR'
-    ].join('\n');
-
-    // Create a data URI for the iCal file
-    const blob = new Blob([icsContent], { type: 'text/calendar;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-
-    // Create a temporary link to download the file
-    const link = document.createElement('a');
-    link.href = url;
-    link.download = 'pernikahan_muhammad_irfan_astita.ics';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    // Show success message
-    alert('Kalender berhasil ditambahkan! Silakan buka file yang diunduh untuk menambahkannya ke aplikasi kalender Anda.');
-}
-
-// Set reminder functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const reminderButtons = document.querySelectorAll('.reminder-btn');
-
-    reminderButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const days = this.getAttribute('data-days');
-            alert(`Pengingat telah diatur ${days} hari sebelum pernikahan (pada tanggal ${getReminderDate(days)}).`);
-        });
-    });
-});
-
-// Helper function to calculate reminder date
-function getReminderDate(daysBefore) {
-    const weddingDate = new Date('January 11, 2026');
-    const reminderDate = new Date(weddingDate);
-    reminderDate.setDate(weddingDate.getDate() - parseInt(daysBefore));
-
-    return reminderDate.toLocaleDateString('id-ID', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-    });
-}
 
 // Copy address functionality
 function copyAddress() {
@@ -970,46 +962,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Quick Navigation Menu
-document.addEventListener('DOMContentLoaded', function() {
-    const quickNavBtn = document.getElementById('quickNavBtn');
-    const quickNavMenu = document.getElementById('quickNavMenu');
-
-    if (quickNavBtn && quickNavMenu) {
-        quickNavBtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            quickNavMenu.classList.toggle('active');
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!quickNavBtn.contains(e.target) && !quickNavMenu.contains(e.target)) {
-                quickNavMenu.classList.remove('active');
-            }
-        });
-
-        // Smooth scroll for navigation links
-        const navLinks = quickNavMenu.querySelectorAll('a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-
-                if (targetSection) {
-                    // Close the menu after clicking
-                    quickNavMenu.classList.remove('active');
-
-                    // Scroll to section
-                    targetSection.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    }
-});
 
 // Enhanced scroll animations
 document.addEventListener('DOMContentLoaded', function() {
@@ -1091,47 +1043,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Gallery filter functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-
-    // Get both desktop and mobile gallery items
-    const desktopGalleryItems = document.querySelectorAll('.grid-item');
-    const mobileGalleryItems = document.querySelectorAll('.swiper-slide');
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Update active button
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            const filter = this.getAttribute('data-filter');
-
-            // Filter desktop gallery items
-            desktopGalleryItems.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.animation = 'fadeInScale 0.5s ease';
-                    }, 10);
-                } else {
-                    item.style.animation = 'none';
-                    item.style.display = 'none';
-                }
-            });
-
-            // Filter mobile gallery items
-            mobileGalleryItems.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.animation = 'fadeInScale 0.5s ease';
-                    }, 10);
-                } else {
-                    item.style.animation = 'none';
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-});
